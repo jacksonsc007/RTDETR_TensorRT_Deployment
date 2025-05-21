@@ -5,9 +5,9 @@ It is worth noting that this repository is learning-oriented, and is not intende
 
 ## Benchmark Results
 ### Experiment Settings
-Operating System: Ubuntu 22.04
-GPU: NVIDIA RTX 4090
-CPU: Intel Core i5-13600KF
+- Operating System: Ubuntu 22.04
+- GPU: NVIDIA RTX 4090
+- CPU: Intel Core i5-13600KF
 
 ### Experiment Results
 
@@ -108,15 +108,21 @@ Apply the workflow of quantization, conversion and evaluation performance on COC
 set output_model_name default_mtq_int8_q_qint8
 bash workflow.sh $output_model_name
 ```
-Secifcally:
+specifically:
 #### Apply Int8 Quantization Using `Modelopt` Library
+```fish
 python tools/quantization/export_onnx_mtq_fromPyTorch.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r benchmark_models/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth --cali_set ~/workspace/coco_calib --output_file $model.onnx --simplify --check
+```
 
 #### Convert Onnx To Tensorrt Engine Using Python API.
+```fish
 python tools/export_trt.py --onnx $model.onnx --saveEngine $model.engine
+```
 
 #### Evaluation On COCO Val2017
+```fish
 python tools/train.py -c  configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r benchmark_models/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth --test-only --trt-engine-path $model.engine --onnx-model-path $model.onnx
+```
 
 
 ### Manually Fuse Nodes in the ONNX Model
