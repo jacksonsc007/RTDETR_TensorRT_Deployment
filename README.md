@@ -97,10 +97,14 @@ If TensorRT-v10.7 is intended to be used, feel free to use the existing `TensorR
 ```
 
 ### Python Environment
-'uv' provided a rather straightforward way to install the python environment:
+'uv' provides a rather straightforward way to install the python environment. To install the python environments with TensorRT-v10.7:
 ```fish
 uv sync
 ```
+Conda environment is also provided in `environment.yml`.
+
+> Please re-install TensorRT if other version is adopted.
+> **Do make sure the version of TensorRT Python package is the same as that of TensorRT-GA and TensorRT-OSS**.
 
 ## Usages
 ### Quick workflow
