@@ -1,0 +1,20 @@
+apex==0.9.10dev
+accelerate
+colored
+controlnet_aux==0.0.6
+cuda-python
+diffusers==0.31.0
+ftfy
+matplotlib
+nvtx
+onnx==1.17.0
+onnxruntime==1.19.2
+opencv-python==4.8.0.74
+scipy
+transformers==4.42.2
+--extra-index-url https://pypi.nvidia.com
+nvidia-modelopt[torch,onnx]==0.19.0
+onnx-graphsurgeon
+peft==0.13.0
+polygraphy==0.49.9
+sentencepiece

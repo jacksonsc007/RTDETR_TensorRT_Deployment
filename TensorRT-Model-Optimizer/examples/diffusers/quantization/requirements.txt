@@ -1,0 +1,6 @@
+cuda-python
+nvtx
+onnx-weekly
+onnx_graphsurgeon --index-url https://pypi.ngc.nvidia.com
+opencv-python>=4.8.1.78
+sentencepiece

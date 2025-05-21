@@ -1,0 +1,1 @@
+ -Wl,-rpath,/root/workspace/TensorRT-v10.9.0.34-GA/lib "/root/workspace/TensorRT-v10.9.0.34-GA/lib/libnvinfer.so" -lcudadevrt -lcudart_static -lrt -lpthread -ldl 

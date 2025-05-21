@@ -1,0 +1,34 @@
+[project]
+name = "rtdetr-tensorrt-deployment"
+version = "0.1.0"
+requires-python = "==3.10.15"
+dependencies = [
+    "cupy-cuda12x>=13.4.1",
+    "faster-coco-eval>=1.6.5",
+    "nvidia-modelopt",
+    "onnx==1.15.0",
+    "onnx-graphsurgeon==0.5.2",
+    "onnxconverter-common==1.14.0",
+    "onnxmltools==1.13.0",
+    "onnxruntime-gpu==1.20.2",
+    "onnxsim==0.4.36",
+    "polygraphy==0.49.20",
+    "pulp>=3.1.1",
+    "pycocotools>=2.0.8",
+    "pyyaml>=6.0.2",
+    "regex>=2024.11.6",
+    "scipy>=1.15.3",
+    "tensorboard>=2.19.0",
+    "tensorrt==10.7.0",
+    "tensorrt-cu12-bindings==10.7.0",
+    "tensorrt-cu12-libs==10.7.0",
+    "torch==2.5.0",
+    "torchprofile>=0.0.4",
+    "torchvision>=0.15.2",
+    "tqdm>=4.67.1",
+    "trex",
+]
+
+[tool.uv.sources]
+trex = { path = "TensorRT-v10.7/tools/experimental/trt-engine-explorer", editable = true }
+nvidia-modelopt = { path = "TensorRT-Model-Optimizer", editable = true }

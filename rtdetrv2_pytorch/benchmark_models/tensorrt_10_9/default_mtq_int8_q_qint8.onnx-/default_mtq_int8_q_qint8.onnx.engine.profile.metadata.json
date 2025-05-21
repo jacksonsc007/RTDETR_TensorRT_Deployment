@@ -1,0 +1,89 @@
+{
+    "performance_summary": {
+        "Throughput": 1196.68,
+        "Latency": [
+            0.829437,
+            0.838745,
+            0.834467,
+            0.834595,
+            0.836426,
+            0.83667,
+            0.837646
+        ],
+        "Enqueue Time": [
+            0.000732422,
+            0.00274658,
+            0.00100553,
+            0.000976562,
+            0.0012207,
+            0.00146484,
+            0.00170898
+        ],
+        "H2D Latency": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "GPU Compute Time": [
+            0.829437,
+            0.838745,
+            0.834467,
+            0.834595,
+            0.836426,
+            0.83667,
+            0.837646
+        ],
+        "D2H Latency": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "Total Host Walltime": 3.00165,
+        "Total GPU Compute Time": 2.99741
+    },
+    "inference_options": {
+        "Batch": "Explicit",
+        "Input inference shapes": "model",
+        "Iterations": "10",
+        "Duration": "3s (+ 200ms warm up)",
+        "Sleep time": "0ms",
+        "Idle time": "0ms",
+        "Inference Streams": "1",
+        "ExposeDMA": "Disabled",
+        "Data transfers": "Disabled",
+        "Spin-wait": "Enabled",
+        "Multithreading": "Disabled",
+        "CUDA Graph": "Enabled",
+        "Separate profiling": "Enabled",
+        "Time Deserialize": "Disabled",
+        "Time Refit": "Disabled",
+        "NVTX verbosity": "2",
+        "Persistent Cache Ratio": "0",
+        "Optimization Profile Index": "0",
+        "Weight Streaming Budget": "100.000000%",
+        "Inputs": "",
+        "Debug Tensor Save Destinations": ""
+    },
+    "device_information": {
+        "Available Devices": "",
+        "Device 0": "\"NVIDIA GeForce RTX 4090\" UUID",
+        "Selected Device": "NVIDIA GeForce RTX 4090",
+        "Selected Device ID": "0",
+        "Selected Device UUID": "GPU-117c6cfa-7ace-5107-bd8e-0405fabb6962",
+        "Compute Capability": 8.9,
+        "SMs": 128.0,
+        "Device Global Memory": "24105 MiB",
+        "Shared Memory per SM": "100 KiB",
+        "Memory Bus Width": 384.0,
+        "Application Compute Clock Rate": "2.52 GHz",
+        "Application Memory Clock Rate": "10.501 GHz"
+    }
+}

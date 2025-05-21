@@ -1,0 +1,7 @@
+bitsandbytes
+fire
+flash-attn>=2.6.0
+rouge_score>=0.1.2
+tiktoken
+transformers_stream_generator
+zstandard

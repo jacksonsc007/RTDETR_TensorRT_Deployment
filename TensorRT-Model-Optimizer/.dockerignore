@@ -1,0 +1,72 @@
+docker
+examples/**/.git
+examples/**/saved_models*
+**/experimental
+
+##### Copied from .gitignore #####
+# Byte-compiled / optimized / DLL files
+**/__pycache__
+**.py[cod]
+**$py.class
+
+# C, CPP extensions
+*.so
+*.so.lock
+**.rendered.*.cpp
+**.rendered.*.o
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+.pytest_cache/
+
+# Sphinx documentation
+docs/_build
+docs/build
+docs/source/reference/generated
+
+# Jupyter Notebook
+**/.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# mypy
+**/.mypy_cache
+
+# Vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Mac stuff
+**/.DS_Store
+
+# Ignore experiment checkpoints
+**.pt
+**.pth.tar
+**.pth
+**.pb
+**.onnx
+**.ckpt
+**.safetensors
+**.bin
+**.pkl
+**.tar.gz
+**.nemo
+
+# Ignore temporary files created by tox
+pyproject.toml.bak
+
+# Ignore git clones for tests
+medusa-vicuna-7b-v1.3/

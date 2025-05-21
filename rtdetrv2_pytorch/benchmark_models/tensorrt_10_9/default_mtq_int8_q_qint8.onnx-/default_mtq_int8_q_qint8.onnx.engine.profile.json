@@ -1,0 +1,241 @@
+[
+  { "count" : 2101 }
+, { "name" : "/model/backbone/conv1/conv1_1/conv/input_quantizer/QuantizeLinear", "timeMs" : 18.6577, "averageMs" : 0.00888037, "medianMs" : 0.009216, "percentage" : 0.592467 }
+, { "name" : "model.backbone.conv1.conv1_1.conv.weight + /model/backbone/conv1/conv1_1/conv/weight_quantizer/QuantizeLinear + /model/backbone/conv1/conv1_1/conv/Conv", "timeMs" : 13.3104, "averageMs" : 0.00633527, "medianMs" : 0.006144, "percentage" : 0.422667 }
+, { "name" : "model.backbone.conv1.conv1_2.conv.weight + /model/backbone/conv1/conv1_2/conv/weight_quantizer/QuantizeLinear + /model/backbone/conv1/conv1_2/conv/Conv", "timeMs" : 25.3838, "averageMs" : 0.0120818, "medianMs" : 0.012288, "percentage" : 0.806053 }
+, { "name" : "model.backbone.conv1.conv1_3.conv.weight + /model/backbone/conv1/conv1_3/conv/weight_quantizer/QuantizeLinear + /model/backbone/conv1/conv1_3/conv/Conv", "timeMs" : 27.3731, "averageMs" : 0.0130286, "medianMs" : 0.013312, "percentage" : 0.869223 }
+, { "name" : "/model/backbone/MaxPool", "timeMs" : 15.9996, "averageMs" : 0.00761525, "medianMs" : 0.00736, "percentage" : 0.508063 }
+, { "name" : "model.backbone.res_layers.0.blocks.0.branch2a.conv.weight + /model/backbone/res_layers.0/blocks.0/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.0/blocks.0/branch2a/conv/Conv", "timeMs" : 16.6985, "averageMs" : 0.00794786, "medianMs" : 0.008192, "percentage" : 0.530254 }
+, { "name" : "model.backbone.res_layers.0.blocks.0.branch2b.conv.weight + /model/backbone/res_layers.0/blocks.0/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.0/blocks.0/branch2b/conv/Conv", "timeMs" : 30.0363, "averageMs" : 0.0142962, "medianMs" : 0.014336, "percentage" : 0.953792 }
+, { "name" : "model.backbone.res_layers.0.blocks.0.short.conv.weight + /model/backbone/res_layers.0/blocks.0/short/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.0/blocks.0/short/conv/Conv + /model/backbone/res_layers.0/blocks.0/Add + /model/backbone/res_layers.0/blocks.0/act/Relu", "timeMs" : 20.152, "averageMs" : 0.00959164, "medianMs" : 0.009216, "percentage" : 0.639921 }
+, { "name" : "/model/backbone/res_layers.0/blocks.1/branch2a/conv/input_quantizer/QuantizeLinear", "timeMs" : 16.1741, "averageMs" : 0.00769827, "medianMs" : 0.007584, "percentage" : 0.513602 }
+, { "name" : "model.backbone.res_layers.0.blocks.1.branch2a.conv.weight + /model/backbone/res_layers.0/blocks.1/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.0/blocks.1/branch2a/conv/Conv", "timeMs" : 16.2193, "averageMs" : 0.00771981, "medianMs" : 0.00784, "percentage" : 0.515039 }
+, { "name" : "model.backbone.res_layers.0.blocks.1.branch2b.conv.weight + /model/backbone/res_layers.0/blocks.1/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.0/blocks.1/branch2b/conv/Conv + /model/backbone/res_layers.0/blocks.1/Add + /model/backbone/res_layers.0/blocks.1/act/Relu", "timeMs" : 28.0403, "averageMs" : 0.0133462, "medianMs" : 0.013312, "percentage" : 0.890411 }
+, { "name" : "/model/backbone/res_layers.1/blocks.0/branch2a/conv/input_quantizer/QuantizeLinear", "timeMs" : 16.4592, "averageMs" : 0.00783397, "medianMs" : 0.008064, "percentage" : 0.522655 }
+, { "name" : "/model/backbone/res_layers.1/blocks.0/short/pool/AveragePool", "timeMs" : 10.7229, "averageMs" : 0.0051037, "medianMs" : 0.00512, "percentage" : 0.340501 }
+, { "name" : "model.backbone.res_layers.1.blocks.0.branch2a.conv.weight + /model/backbone/res_layers.1/blocks.0/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.1/blocks.0/branch2a/conv/Conv", "timeMs" : 16.9724, "averageMs" : 0.00807823, "medianMs" : 0.008192, "percentage" : 0.538952 }
+, { "name" : "model.backbone.res_layers.1.blocks.0.branch2b.conv.weight + /model/backbone/res_layers.1/blocks.0/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.1/blocks.0/branch2b/conv/Conv", "timeMs" : 25.6756, "averageMs" : 0.0122207, "medianMs" : 0.012288, "percentage" : 0.81532 }
+, { "name" : "model.backbone.res_layers.1.blocks.0.short.conv.conv.weight + /model/backbone/res_layers.1/blocks.0/short/conv/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.1/blocks.0/short/conv/conv/Conv + /model/backbone/res_layers.1/blocks.0/Add + /model/backbone/res_layers.1/blocks.0/act/Relu", "timeMs" : 15.3544, "averageMs" : 0.00730813, "medianMs" : 0.007168, "percentage" : 0.487573 }
+, { "name" : "/model/backbone/res_layers.1/blocks.1/branch2a/conv/input_quantizer/QuantizeLinear", "timeMs" : 14.0064, "averageMs" : 0.00666656, "medianMs" : 0.006752, "percentage" : 0.44477 }
+, { "name" : "model.backbone.res_layers.1.blocks.1.branch2a.conv.weight + /model/backbone/res_layers.1/blocks.1/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.1/blocks.1/branch2a/conv/Conv", "timeMs" : 17.831, "averageMs" : 0.00848689, "medianMs" : 0.008192, "percentage" : 0.566216 }
+, { "name" : "model.backbone.res_layers.1.blocks.1.branch2b.conv.weight + /model/backbone/res_layers.1/blocks.1/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.1/blocks.1/branch2b/conv/Conv + /model/backbone/res_layers.1/blocks.1/Add + /model/backbone/res_layers.1/blocks.1/act/Relu", "timeMs" : 23.7123, "averageMs" : 0.0112862, "medianMs" : 0.011264, "percentage" : 0.752977 }
+, { "name" : "/model/backbone/res_layers.2/blocks.0/branch2a/conv/input_quantizer/QuantizeLinear", "timeMs" : 14.2032, "averageMs" : 0.0067602, "medianMs" : 0.006944, "percentage" : 0.451017 }
+, { "name" : "/model/backbone/res_layers.2/blocks.0/short/pool/AveragePool", "timeMs" : 9.62106, "averageMs" : 0.00457928, "medianMs" : 0.004288, "percentage" : 0.305513 }
+, { "name" : "model.backbone.res_layers.2.blocks.0.branch2a.conv.weight + /model/backbone/res_layers.2/blocks.0/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.2/blocks.0/branch2a/conv/Conv", "timeMs" : 17.4661, "averageMs" : 0.00831321, "medianMs" : 0.008192, "percentage" : 0.554629 }
+, { "name" : "model.backbone.res_layers.2.blocks.0.branch2b.conv.weight + /model/backbone/res_layers.2/blocks.0/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.2/blocks.0/branch2b/conv/Conv", "timeMs" : 23.9631, "averageMs" : 0.0114056, "medianMs" : 0.011264, "percentage" : 0.76094 }
+, { "name" : "model.backbone.res_layers.2.blocks.0.short.conv.conv.weight + /model/backbone/res_layers.2/blocks.0/short/conv/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.2/blocks.0/short/conv/conv/Conv + /model/backbone/res_layers.2/blocks.0/Add + /model/backbone/res_layers.2/blocks.0/act/Relu", "timeMs" : 13.0349, "averageMs" : 0.00620413, "medianMs" : 0.006144, "percentage" : 0.413918 }
+, { "name" : "/model/backbone/res_layers.2/blocks.1/branch2a/conv/input_quantizer/QuantizeLinear", "timeMs" : 13.3458, "averageMs" : 0.00635212, "medianMs" : 0.006144, "percentage" : 0.423792 }
+, { "name" : "model.backbone.res_layers.2.blocks.1.branch2a.conv.weight + /model/backbone/res_layers.2/blocks.1/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.2/blocks.1/branch2a/conv/Conv", "timeMs" : 20.6572, "averageMs" : 0.00983207, "medianMs" : 0.01008, "percentage" : 0.655962 }
+, { "name" : "model.backbone.res_layers.2.blocks.1.branch2b.conv.weight + /model/backbone/res_layers.2/blocks.1/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.2/blocks.1/branch2b/conv/Conv + /model/backbone/res_layers.2/blocks.1/Add + /model/backbone/res_layers.2/blocks.1/act/Relu", "timeMs" : 22.5387, "averageMs" : 0.0107276, "medianMs" : 0.010592, "percentage" : 0.715709 }
+, { "name" : "/model/backbone/res_layers.3/blocks.0/branch2a/conv/input_quantizer/QuantizeLinear", "timeMs" : 12.7565, "averageMs" : 0.00607163, "medianMs" : 0.006144, "percentage" : 0.405078 }
+, { "name" : "/model/backbone/res_layers.3/blocks.0/short/pool/AveragePool", "timeMs" : 9.18706, "averageMs" : 0.00437271, "medianMs" : 0.004096, "percentage" : 0.291732 }
+, { "name" : "model.backbone.res_layers.3.blocks.0.branch2a.conv.weight + /model/backbone/res_layers.3/blocks.0/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.3/blocks.0/branch2a/conv/Conv", "timeMs" : 19.7907, "averageMs" : 0.00941967, "medianMs" : 0.009216, "percentage" : 0.628448 }
+, { "name" : "model.backbone.res_layers.3.blocks.0.branch2b.conv.weight + /model/backbone/res_layers.3/blocks.0/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.3/blocks.0/branch2b/conv/Conv", "timeMs" : 27.7888, "averageMs" : 0.0132265, "medianMs" : 0.013312, "percentage" : 0.882424 }
+, { "name" : "model.backbone.res_layers.3.blocks.0.short.conv.conv.weight + /model/backbone/res_layers.3/blocks.0/short/conv/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.3/blocks.0/short/conv/conv/Conv + /model/backbone/res_layers.3/blocks.0/Add + /model/backbone/res_layers.3/blocks.0/act/Relu", "timeMs" : 12.4521, "averageMs" : 0.00592674, "medianMs" : 0.006144, "percentage" : 0.395412 }
+, { "name" : "/model/backbone/res_layers.3/blocks.1/branch2a/conv/input_quantizer/QuantizeLinear", "timeMs" : 12.8027, "averageMs" : 0.00609364, "medianMs" : 0.006144, "percentage" : 0.406547 }
+, { "name" : "model.backbone.res_layers.3.blocks.1.branch2a.conv.weight + /model/backbone/res_layers.3/blocks.1/branch2a/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.3/blocks.1/branch2a/conv/Conv", "timeMs" : 29.0756, "averageMs" : 0.0138389, "medianMs" : 0.013696, "percentage" : 0.923286 }
+, { "name" : "model.backbone.res_layers.3.blocks.1.branch2b.conv.weight + /model/backbone/res_layers.3/blocks.1/branch2b/conv/weight_quantizer/QuantizeLinear + /model/backbone/res_layers.3/blocks.1/branch2b/conv/Conv + /model/backbone/res_layers.3/blocks.1/Add + /model/backbone/res_layers.3/blocks.1/act/Relu", "timeMs" : 27.4446, "averageMs" : 0.0130626, "medianMs" : 0.013248, "percentage" : 0.871493 }
+, { "name" : "/model/encoder/input_proj.2/conv/input_quantizer/QuantizeLinear", "timeMs" : 12.3973, "averageMs" : 0.00590066, "medianMs" : 0.006112, "percentage" : 0.393671 }
+, { "name" : "model.encoder.input_proj.2.conv.weight + /model/encoder/input_proj.2/conv/weight_quantizer/QuantizeLinear + /model/encoder/input_proj.2/conv/Conv", "timeMs" : 17.3787, "averageMs" : 0.00827164, "medianMs" : 0.008192, "percentage" : 0.551855 }
+, { "name" : "__myl_MulAddReshTran_myl37_0", "timeMs" : 8.60501, "averageMs" : 0.00409568, "medianMs" : 0.004096, "percentage" : 0.273249 }
+, { "name" : "__mye8928_myl37_1", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_TranAdd_myl37_2", "timeMs" : 6.45515, "averageMs" : 0.00307242, "medianMs" : 0.003072, "percentage" : 0.204981 }
+, { "name" : "__mye8930_myl37_3", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/encoder/encoder_0/layers_0/self_attn/MatMul_2_myl37_4", "timeMs" : 17.2095, "averageMs" : 0.00819108, "medianMs" : 0.008192, "percentage" : 0.54648 }
+, { "name" : "__mye8932_myl37_5", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/encoder/encoder_0/layers_0/self_attn/MatMul_1+/model/encoder/encoder_0/layers_0/self_attn/MatMul_myl37_6", "timeMs" : 19.3611, "averageMs" : 0.00921518, "medianMs" : 0.009216, "percentage" : 0.614805 }
+, { "name" : "/model/encoder/encoder_0/layers_0/self_attn/MatMul_3_myl37_7", "timeMs" : 17.2115, "averageMs" : 0.00819205, "medianMs" : 0.008192, "percentage" : 0.546545 }
+, { "name" : "__myl_MaxrSubExpSumDivMul_myl37_8", "timeMs" : 13.5795, "averageMs" : 0.00646336, "medianMs" : 0.006464, "percentage" : 0.431213 }
+, { "name" : "__mye8934_myl37_9", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/encoder/encoder_0/layers_0/self_attn/MatMul_4_myl37_10", "timeMs" : 15.0597, "averageMs" : 0.00716788, "medianMs" : 0.007168, "percentage" : 0.478216 }
+, { "name" : "__myl_Tran_myl37_11", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "/model/encoder/encoder_0/layers_0/self_attn/Gemm_myl37_12", "timeMs" : 12.9083, "averageMs" : 0.00614386, "medianMs" : 0.006144, "percentage" : 0.409897 }
+, { "name" : "__myl_AddReshMeanSubMulMeanAddSqrtDivMulMulAddReshMulMinMaxRounCast_myl37_13", "timeMs" : 11.1592, "averageMs" : 0.00531139, "medianMs" : 0.005312, "percentage" : 0.354358 }
+, { "name" : "/model/encoder/encoder_0/layers_0/linear1/MatMul_myl37_14", "timeMs" : 17.2095, "averageMs" : 0.00819108, "medianMs" : 0.008192, "percentage" : 0.54648 }
+, { "name" : "__myl_FcAdd_myl37_15", "timeMs" : 12.9076, "averageMs" : 0.00614354, "medianMs" : 0.006144, "percentage" : 0.409876 }
+, { "name" : "__myl_ReshMeanSubMulMean_myl37_16", "timeMs" : 8.60575, "averageMs" : 0.00409603, "medianMs" : 0.004096, "percentage" : 0.273273 }
+, { "name" : "__myl_AddSqrtDivMulMulAddReshTran_myl37_17", "timeMs" : 10.7551, "averageMs" : 0.00511903, "medianMs" : 0.00512, "percentage" : 0.341524 }
+, { "name" : "model.encoder.input_proj.0.conv.weight + /model/encoder/input_proj.0/conv/weight_quantizer/QuantizeLinear + /model/encoder/input_proj.0/conv/Conv", "timeMs" : 15.5205, "averageMs" : 0.00738722, "medianMs" : 0.007168, "percentage" : 0.49285 }
+, { "name" : "model.encoder.input_proj.1.conv.weight + /model/encoder/input_proj.1/conv/weight_quantizer/QuantizeLinear + /model/encoder/input_proj.1/conv/Conv", "timeMs" : 14.04, "averageMs" : 0.00668254, "medianMs" : 0.00704, "percentage" : 0.445836 }
+, { "name" : "/model/encoder/lateral_convs.0/conv/input_quantizer/QuantizeLinear", "timeMs" : 13.412, "averageMs" : 0.00638361, "medianMs" : 0.006144, "percentage" : 0.425893 }
+, { "name" : "model.encoder.lateral_convs.0.conv.weight + /model/encoder/lateral_convs.0/conv/weight_quantizer/QuantizeLinear + /model/encoder/lateral_convs.0/conv/Conv", "timeMs" : 16.5128, "averageMs" : 0.00785948, "medianMs" : 0.008192, "percentage" : 0.524357 }
+, { "name" : "PWN(/model/encoder/lateral_convs.0/act/Sigmoid, /model/encoder/lateral_convs.0/act/Mul)", "timeMs" : 7.90353, "averageMs" : 0.00376179, "medianMs" : 0.003968, "percentage" : 0.250974 }
+, { "name" : "Reformatting CopyNode for Output Tensor 0 to PWN(/model/encoder/lateral_convs.0/act/Sigmoid, /model/encoder/lateral_convs.0/act/Mul)", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/encoder/fpn_blocks.0/conv1/conv/input_quantizer/QuantizeLinear_clone_0", "timeMs" : 13.0391, "averageMs" : 0.00620616, "medianMs" : 0.006144, "percentage" : 0.414053 }
+, { "name" : "/model/encoder/Resize", "timeMs" : 10.0439, "averageMs" : 0.00478053, "medianMs" : 0.00512, "percentage" : 0.31894 }
+, { "name" : "/model/encoder/Concat_2_/model/encoder/Resize_output_0_clone_0 copy", "timeMs" : 10.3403, "averageMs" : 0.00492161, "medianMs" : 0.00512, "percentage" : 0.328353 }
+, { "name" : "model.encoder.fpn_blocks.0.conv2.conv.weight + /model/encoder/fpn_blocks.0/conv2/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.0/conv2/conv/Conv", "timeMs" : 13.5823, "averageMs" : 0.00646469, "medianMs" : 0.006144, "percentage" : 0.431302 }
+, { "name" : "model.encoder.fpn_blocks.0.conv1.conv.weight + /model/encoder/fpn_blocks.0/conv1/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.0/conv1/conv/Conv + PWN(/model/encoder/fpn_blocks.0/conv1/act/Sigmoid, /model/encoder/fpn_blocks.0/conv1/act/Mul)", "timeMs" : 14.2323, "averageMs" : 0.00677405, "medianMs" : 0.007136, "percentage" : 0.451941 }
+, { "name" : "model.encoder.fpn_blocks.0.bottlenecks.0.conv.weight + /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.0/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.0/conv/Conv + PWN(/model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.0/act/Sigmoid, /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.0/act/Mul)", "timeMs" : 16.8584, "averageMs" : 0.00802399, "medianMs" : 0.008192, "percentage" : 0.535333 }
+, { "name" : "model.encoder.fpn_blocks.0.bottlenecks.1.conv.weight + /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.1/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.1/conv/Conv + PWN(/model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.1/act/Sigmoid, /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.1/act/Mul)", "timeMs" : 16.4351, "averageMs" : 0.00782252, "medianMs" : 0.00816, "percentage" : 0.521892 }
+, { "name" : "model.encoder.fpn_blocks.0.bottlenecks.2.conv.weight + /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.2/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.2/conv/Conv", "timeMs" : 17.2781, "averageMs" : 0.00822373, "medianMs" : 0.008192, "percentage" : 0.548659 }
+, { "name" : "PWN(PWN(/model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.2/act/Sigmoid, /model/encoder/fpn_blocks.0/bottlenecks/bottlenecks.2/act/Mul), PWN(PWN(/model/encoder/fpn_blocks.0/conv2/act/Sigmoid, /model/encoder/fpn_blocks.0/conv2/act/Mul), /model/encoder/fpn_blocks.0/Add))", "timeMs" : 11.2777, "averageMs" : 0.00536775, "medianMs" : 0.00512, "percentage" : 0.358118 }
+, { "name" : "model.encoder.fpn_blocks.0.conv3.conv.weight + /model/encoder/fpn_blocks.0/conv3/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.0/conv3/conv/Conv + PWN(/model/encoder/fpn_blocks.0/conv3/act/Sigmoid, /model/encoder/fpn_blocks.0/conv3/act/Mul)", "timeMs" : 13.3046, "averageMs" : 0.0063325, "medianMs" : 0.006144, "percentage" : 0.422482 }
+, { "name" : "model.encoder.lateral_convs.1.conv.weight + /model/encoder/lateral_convs.1/conv/weight_quantizer/QuantizeLinear + /model/encoder/lateral_convs.1/conv/Conv + PWN(/model/encoder/lateral_convs.1/act/Sigmoid, /model/encoder/lateral_convs.1/act/Mul)", "timeMs" : 13.4943, "averageMs" : 0.00642281, "medianMs" : 0.006144, "percentage" : 0.428508 }
+, { "name" : "/model/encoder/Resize_1", "timeMs" : 10.4803, "averageMs" : 0.00498823, "medianMs" : 0.00512, "percentage" : 0.332798 }
+, { "name" : "/model/encoder/Concat_3_/model/encoder/Resize_1_output_0_clone_0 copy", "timeMs" : 11.3269, "averageMs" : 0.0053912, "medianMs" : 0.00512, "percentage" : 0.359683 }
+, { "name" : "model.encoder.fpn_blocks.1.conv2.conv.weight + /model/encoder/fpn_blocks.1/conv2/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.1/conv2/conv/Conv", "timeMs" : 23.7487, "averageMs" : 0.0113035, "medianMs" : 0.011264, "percentage" : 0.754133 }
+, { "name" : "model.encoder.fpn_blocks.1.conv1.conv.weight + /model/encoder/fpn_blocks.1/conv1/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.1/conv1/conv/Conv + PWN(/model/encoder/fpn_blocks.1/conv1/act/Sigmoid, /model/encoder/fpn_blocks.1/conv1/act/Mul)", "timeMs" : 17.647, "averageMs" : 0.00839933, "medianMs" : 0.008192, "percentage" : 0.560374 }
+, { "name" : "model.encoder.fpn_blocks.1.bottlenecks.0.conv.weight + /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.0/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.0/conv/Conv + PWN(/model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.0/act/Sigmoid, /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.0/act/Mul)", "timeMs" : 22.7633, "averageMs" : 0.0108345, "medianMs" : 0.0112, "percentage" : 0.722842 }
+, { "name" : "model.encoder.fpn_blocks.1.bottlenecks.1.conv.weight + /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.1/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.1/conv/Conv + PWN(/model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.1/act/Sigmoid, /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.1/act/Mul)", "timeMs" : 20.5722, "averageMs" : 0.00979162, "medianMs" : 0.01008, "percentage" : 0.653263 }
+, { "name" : "model.encoder.fpn_blocks.1.bottlenecks.2.conv.weight + /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.2/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.2/conv/Conv", "timeMs" : 26.3312, "averageMs" : 0.0125327, "medianMs" : 0.012288, "percentage" : 0.836138 }
+, { "name" : "PWN(PWN(/model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.2/act/Sigmoid, /model/encoder/fpn_blocks.1/bottlenecks/bottlenecks.2/act/Mul), PWN(PWN(/model/encoder/fpn_blocks.1/conv2/act/Sigmoid, /model/encoder/fpn_blocks.1/conv2/act/Mul), /model/encoder/fpn_blocks.1/Add))", "timeMs" : 16.6198, "averageMs" : 0.00791044, "medianMs" : 0.008192, "percentage" : 0.527757 }
+, { "name" : "model.encoder.fpn_blocks.1.conv3.conv.weight + /model/encoder/fpn_blocks.1/conv3/conv/weight_quantizer/QuantizeLinear + /model/encoder/fpn_blocks.1/conv3/conv/Conv + PWN(/model/encoder/fpn_blocks.1/conv3/act/Sigmoid, /model/encoder/fpn_blocks.1/conv3/act/Mul)", "timeMs" : 25.3913, "averageMs" : 0.0120854, "medianMs" : 0.012288, "percentage" : 0.806293 }
+, { "name" : "model.decoder.input_proj.0.conv.weight + /model/decoder/input_proj.0/conv/weight_quantizer/QuantizeLinear + /model/decoder/input_proj.0/conv/Conv", "timeMs" : 27.0676, "averageMs" : 0.0128832, "medianMs" : 0.013216, "percentage" : 0.859523 }
+, { "name" : "model.encoder.downsample_convs.0.conv.weight + /model/encoder/downsample_convs.0/conv/weight_quantizer/QuantizeLinear + /model/encoder/downsample_convs.0/conv/Conv + PWN(/model/encoder/downsample_convs.0/act/Sigmoid, /model/encoder/downsample_convs.0/act/Mul)", "timeMs" : 22.7888, "averageMs" : 0.0108467, "medianMs" : 0.011168, "percentage" : 0.723651 }
+, { "name" : "/model/encoder/Resize_1_output_0 copy", "timeMs" : 10.3083, "averageMs" : 0.00490638, "medianMs" : 0.00512, "percentage" : 0.327337 }
+, { "name" : "model.encoder.pan_blocks.0.conv2.conv.weight + /model/encoder/pan_blocks.0/conv2/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.0/conv2/conv/Conv", "timeMs" : 13.7544, "averageMs" : 0.00654659, "medianMs" : 0.006144, "percentage" : 0.436766 }
+, { "name" : "model.encoder.pan_blocks.0.conv1.conv.weight + /model/encoder/pan_blocks.0/conv1/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.0/conv1/conv/Conv + PWN(/model/encoder/pan_blocks.0/conv1/act/Sigmoid, /model/encoder/pan_blocks.0/conv1/act/Mul)", "timeMs" : 14.2036, "averageMs" : 0.00676042, "medianMs" : 0.007104, "percentage" : 0.451032 }
+, { "name" : "model.encoder.pan_blocks.0.bottlenecks.0.conv.weight + /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.0/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.0/conv/Conv + PWN(/model/encoder/pan_blocks.0/bottlenecks/bottlenecks.0/act/Sigmoid, /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.0/act/Mul)", "timeMs" : 16.4064, "averageMs" : 0.00780884, "medianMs" : 0.00816, "percentage" : 0.520979 }
+, { "name" : "model.encoder.pan_blocks.0.bottlenecks.1.conv.weight + /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.1/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.1/conv/Conv + PWN(/model/encoder/pan_blocks.0/bottlenecks/bottlenecks.1/act/Sigmoid, /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.1/act/Mul)", "timeMs" : 16.4236, "averageMs" : 0.00781706, "medianMs" : 0.00816, "percentage" : 0.521527 }
+, { "name" : "model.encoder.pan_blocks.0.bottlenecks.2.conv.weight + /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.2/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.2/conv/Conv", "timeMs" : 17.0314, "averageMs" : 0.00810635, "medianMs" : 0.008192, "percentage" : 0.540827 }
+, { "name" : "PWN(PWN(/model/encoder/pan_blocks.0/bottlenecks/bottlenecks.2/act/Sigmoid, /model/encoder/pan_blocks.0/bottlenecks/bottlenecks.2/act/Mul), PWN(PWN(/model/encoder/pan_blocks.0/conv2/act/Sigmoid, /model/encoder/pan_blocks.0/conv2/act/Mul), /model/encoder/pan_blocks.0/Add))", "timeMs" : 11.159, "averageMs" : 0.00531127, "medianMs" : 0.00512, "percentage" : 0.354349 }
+, { "name" : "model.encoder.pan_blocks.0.conv3.conv.weight + /model/encoder/pan_blocks.0/conv3/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.0/conv3/conv/Conv + PWN(/model/encoder/pan_blocks.0/conv3/act/Sigmoid, /model/encoder/pan_blocks.0/conv3/act/Mul)", "timeMs" : 13.1027, "averageMs" : 0.00623643, "medianMs" : 0.006144, "percentage" : 0.416073 }
+, { "name" : "model.decoder.input_proj.1.conv.weight + /model/decoder/input_proj.1/conv/weight_quantizer/QuantizeLinear + /model/decoder/input_proj.1/conv/Conv", "timeMs" : 16.3728, "averageMs" : 0.00779285, "medianMs" : 0.008064, "percentage" : 0.519912 }
+, { "name" : "model.encoder.downsample_convs.1.conv.weight + /model/encoder/downsample_convs.1/conv/weight_quantizer/QuantizeLinear + /model/encoder/downsample_convs.1/conv/Conv + PWN(/model/encoder/downsample_convs.1/act/Sigmoid, /model/encoder/downsample_convs.1/act/Mul)", "timeMs" : 19.2156, "averageMs" : 0.00914593, "medianMs" : 0.009216, "percentage" : 0.610185 }
+, { "name" : "/model/encoder/pan_blocks.1/conv1/conv/input_quantizer/QuantizeLinear_clone_1", "timeMs" : 13.9507, "averageMs" : 0.00664004, "medianMs" : 0.006752, "percentage" : 0.443 }
+, { "name" : "model.encoder.pan_blocks.1.conv2.conv.weight + /model/encoder/pan_blocks.1/conv2/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.1/conv2/conv/Conv", "timeMs" : 13.1873, "averageMs" : 0.00627669, "medianMs" : 0.006144, "percentage" : 0.418759 }
+, { "name" : "model.encoder.pan_blocks.1.conv1.conv.weight + /model/encoder/pan_blocks.1/conv1/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.1/conv1/conv/Conv + PWN(/model/encoder/pan_blocks.1/conv1/act/Sigmoid, /model/encoder/pan_blocks.1/conv1/act/Mul)", "timeMs" : 13.0829, "averageMs" : 0.00622698, "medianMs" : 0.006144, "percentage" : 0.415442 }
+, { "name" : "model.encoder.pan_blocks.1.bottlenecks.0.conv.weight + /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.0/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.0/conv/Conv + PWN(/model/encoder/pan_blocks.1/bottlenecks/bottlenecks.0/act/Sigmoid, /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.0/act/Mul)", "timeMs" : 14.1464, "averageMs" : 0.00673319, "medianMs" : 0.006912, "percentage" : 0.449215 }
+, { "name" : "model.encoder.pan_blocks.1.bottlenecks.1.conv.weight + /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.1/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.1/conv/Conv + PWN(/model/encoder/pan_blocks.1/bottlenecks/bottlenecks.1/act/Sigmoid, /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.1/act/Mul)", "timeMs" : 14.0954, "averageMs" : 0.0067089, "medianMs" : 0.006816, "percentage" : 0.447595 }
+, { "name" : "model.encoder.pan_blocks.1.bottlenecks.2.conv.weight + /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.2/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.2/conv/Conv", "timeMs" : 15.3488, "averageMs" : 0.00730545, "medianMs" : 0.007168, "percentage" : 0.487394 }
+, { "name" : "PWN(PWN(/model/encoder/pan_blocks.1/bottlenecks/bottlenecks.2/act/Sigmoid, /model/encoder/pan_blocks.1/bottlenecks/bottlenecks.2/act/Mul), PWN(PWN(/model/encoder/pan_blocks.1/conv2/act/Sigmoid, /model/encoder/pan_blocks.1/conv2/act/Mul), /model/encoder/pan_blocks.1/Add))", "timeMs" : 9.02598, "averageMs" : 0.00429604, "medianMs" : 0.004256, "percentage" : 0.286617 }
+, { "name" : "model.encoder.pan_blocks.1.conv3.conv.weight + /model/encoder/pan_blocks.1/conv3/conv/weight_quantizer/QuantizeLinear + /model/encoder/pan_blocks.1/conv3/conv/Conv + PWN(/model/encoder/pan_blocks.1/conv3/act/Sigmoid, /model/encoder/pan_blocks.1/conv3/act/Mul)", "timeMs" : 11.3611, "averageMs" : 0.0054075, "medianMs" : 0.00512, "percentage" : 0.360769 }
+, { "name" : "model.decoder.input_proj.2.conv.weight + /model/decoder/input_proj.2/conv/weight_quantizer/QuantizeLinear + /model/decoder/input_proj.2/conv/Conv", "timeMs" : 15.003, "averageMs" : 0.00714089, "medianMs" : 0.007168, "percentage" : 0.476415 }
+, { "name" : "entry^bb^signal^1_myl85_0", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "entry^bb^wait^1_myl85_1", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_MulAddReshMulMinMaxRounCastTran_myl85_2", "timeMs" : 25.8124, "averageMs" : 0.0122858, "medianMs" : 0.012288, "percentage" : 0.819664 }
+, { "name" : "__myl_MulMinMaxRounCastReshTran_myl85_3", "timeMs" : 15.0577, "averageMs" : 0.0071669, "medianMs" : 0.007168, "percentage" : 0.478151 }
+, { "name" : "__myl_MulAddReshMulMinMaxRounCastTran_myl85_4", "timeMs" : 17.2125, "averageMs" : 0.00819254, "medianMs" : 0.008192, "percentage" : 0.546578 }
+, { "name" : "__myl_MulMinMaxRounCastReshTran_myl85_5", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__mye153328_myl85_6", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153330_myl85_7", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_MulAddMulMinMaxRounCastReshReshTranMulMinMaxRounCastTranConcConc_myl85_8", "timeMs" : 23.664, "averageMs" : 0.0112632, "medianMs" : 0.011264, "percentage" : 0.751443 }
+, { "name" : "__mye153332_myl85_9", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153334_myl85_10", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_2/cross_attn/value_proj/MatMul+/model/decoder/decoder/layers_1/cross_attn/value_proj/MatMul+/model/decoder/decoder/layers_0/cross_attn/value_proj/MatMul_myl85_11", "timeMs" : 58.0909, "averageMs" : 0.0276492, "medianMs" : 0.027648, "percentage" : 1.84466 }
+, { "name" : "/model/decoder/enc_output/proj/MatMul_myl85_12", "timeMs" : 40.8731, "averageMs" : 0.0194541, "medianMs" : 0.019456, "percentage" : 1.29791 }
+, { "name" : "__myl_MeanSubMulMeanAddSqrtDivMulMulAddMulMinMaxRounCast_myl85_13", "timeMs" : 27.9695, "averageMs" : 0.0133125, "medianMs" : 0.013312, "percentage" : 0.888162 }
+, { "name" : "__mye153336_myl85_14", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153338_myl85_15", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/enc_score_head/MatMul_myl85_16", "timeMs" : 40.8752, "averageMs" : 0.0194551, "medianMs" : 0.019456, "percentage" : 1.29798 }
+, { "name" : "__myl_Maxr_myl85_17", "timeMs" : 12.9072, "averageMs" : 0.00614337, "medianMs" : 0.006144, "percentage" : 0.409865 }
+, { "name" : "__myl_Topk_myl85_18", "timeMs" : 73.1486, "averageMs" : 0.0348161, "medianMs" : 0.034816, "percentage" : 2.32281 }
+, { "name" : "__mye153340_myl85_19", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/enc_bbox_head/layers_0/MatMul_myl85_20", "timeMs" : 30.1163, "averageMs" : 0.0143343, "medianMs" : 0.014336, "percentage" : 0.956334 }
+, { "name" : "/model/decoder/enc_bbox_head/layers_1/MatMul_myl85_21", "timeMs" : 21.5132, "averageMs" : 0.0102395, "medianMs" : 0.01024, "percentage" : 0.683146 }
+, { "name" : "__myl_FcAdd_myl85_22", "timeMs" : 19.3601, "averageMs" : 0.00921469, "medianMs" : 0.009216, "percentage" : 0.614772 }
+, { "name" : "__mye153342_myl85_23", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_CastReshCastReplGathSigmMaxMinMulMinMaxRounConcCastMaxSubMinMaxMinDivLog_myl85_24", "timeMs" : 8.60575, "averageMs" : 0.00409603, "medianMs" : 0.004096, "percentage" : 0.273273 }
+, { "name" : "/model/decoder/decoder/query_pos_head/layers_0/MatMul_myl85_25", "timeMs" : 15.057, "averageMs" : 0.00716657, "medianMs" : 0.007168, "percentage" : 0.478128 }
+, { "name" : "/model/decoder/decoder/query_pos_head/layers_1/MatMul_myl85_26", "timeMs" : 12.9075, "averageMs" : 0.00614348, "medianMs" : 0.006144, "percentage" : 0.409872 }
+, { "name" : "__myl_ReplGathReshAdd_myl85_27", "timeMs" : 6.72317, "averageMs" : 0.00319998, "medianMs" : 0.0032, "percentage" : 0.213492 }
+, { "name" : "__mye153344_myl85_28", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153346_myl85_29", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_0/self_attn/MatMul_2_myl85_30", "timeMs" : 19.3631, "averageMs" : 0.00921615, "medianMs" : 0.009216, "percentage" : 0.61487 }
+, { "name" : "__mye153348_myl85_31", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_0/self_attn/MatMul_1+/model/decoder/decoder/layers_0/self_attn/MatMul_myl85_32", "timeMs" : 19.3611, "averageMs" : 0.00921518, "medianMs" : 0.009216, "percentage" : 0.614805 }
+, { "name" : "/model/decoder/decoder/layers_0/self_attn/MatMul_3_myl85_33", "timeMs" : 13.513, "averageMs" : 0.00643172, "medianMs" : 0.006432, "percentage" : 0.429102 }
+, { "name" : "__myl_MaxrSubExpSumDivMul_myl85_34", "timeMs" : 10.8243, "averageMs" : 0.005152, "medianMs" : 0.005152, "percentage" : 0.343723 }
+, { "name" : "__mye153350_myl85_35", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_0/self_attn/MatMul_4_myl85_36", "timeMs" : 14.7912, "averageMs" : 0.00704008, "medianMs" : 0.00704, "percentage" : 0.46969 }
+, { "name" : "__myl_Tran_myl85_37", "timeMs" : 6.45422, "averageMs" : 0.00307198, "medianMs" : 0.003072, "percentage" : 0.204952 }
+, { "name" : "/model/decoder/decoder/layers_0/self_attn/Gemm_myl85_38", "timeMs" : 12.9072, "averageMs" : 0.00614337, "medianMs" : 0.006144, "percentage" : 0.409865 }
+, { "name" : "__myl_AddReshMeanSubMulMeanAddSqrtDivMulMulAddReshAddMulMinMaxRounCast_myl85_39", "timeMs" : 8.60485, "averageMs" : 0.0040956, "medianMs" : 0.004096, "percentage" : 0.273244 }
+, { "name" : "__myl_FcMulAdd_myl85_40", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__mye153352_myl85_41", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_ReshSlicSlicReshMulMulMulAddMulAddTranReshSlicSlicSlic_myl85_42", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "__myl_TranReshMoveSlicReshSlicReshSlicReshGridGridGrid_myl85_43", "timeMs" : 19.3625, "averageMs" : 0.00921585, "medianMs" : 0.009216, "percentage" : 0.614849 }
+, { "name" : "__mye153354_myl85_44", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_ReshMaxrSubExpSum_myl85_45", "timeMs" : 12.9062, "averageMs" : 0.00614289, "medianMs" : 0.006144, "percentage" : 0.409832 }
+, { "name" : "__mye153356_myl85_46", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153358_myl85_47", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_DivMulTranReshConcMulSumMulMinMaxRounCast_myl85_48", "timeMs" : 34.8929, "averageMs" : 0.0166077, "medianMs" : 0.016608, "percentage" : 1.10801 }
+, { "name" : "__myl_Move_myl85_49", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "__myl_FcAdd_myl85_50", "timeMs" : 10.7571, "averageMs" : 0.00512001, "medianMs" : 0.00512, "percentage" : 0.341589 }
+, { "name" : "__myl_ReshMeanSubMulMeanAddSqrtDivMulMulAddReshMulMinMaxRounCast_myl85_51", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "/model/decoder/decoder/layers_0/linear1/MatMul_myl85_52", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__myl_FcAdd_myl85_53", "timeMs" : 13.2442, "averageMs" : 0.00630378, "medianMs" : 0.006304, "percentage" : 0.420566 }
+, { "name" : "__myl_ReshMeanSubMulMeanAddSqrtDivMulMulAddMulMinMaxRounCast_myl85_54", "timeMs" : 10.7551, "averageMs" : 0.00511903, "medianMs" : 0.00512, "percentage" : 0.341524 }
+, { "name" : "__mye153360_myl85_55", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153362_myl85_56", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_1/self_attn/MatMul_2_myl85_57", "timeMs" : 17.2095, "averageMs" : 0.00819108, "medianMs" : 0.008192, "percentage" : 0.54648 }
+, { "name" : "__mye153364_myl85_58", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/dec_bbox_head_0/layers_0/MatMul_myl85_59", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "/model/decoder/decoder/dec_bbox_head_0/layers_1/MatMul_myl85_60", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__myl_FcAddSigm_myl85_61", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__myl_MulMinMaxRounConcCast_myl85_62", "timeMs" : 8.60399, "averageMs" : 0.00409519, "medianMs" : 0.004096, "percentage" : 0.273217 }
+, { "name" : "/model/decoder/decoder/query_pos_head/layers_0_1/MatMul_myl85_63", "timeMs" : 8.94257, "averageMs" : 0.00425634, "medianMs" : 0.004256, "percentage" : 0.283968 }
+, { "name" : "/model/decoder/decoder/query_pos_head/layers_1_1/MatMul_myl85_64", "timeMs" : 10.7564, "averageMs" : 0.00511964, "medianMs" : 0.00512, "percentage" : 0.341565 }
+, { "name" : "__myl_Add_myl85_65", "timeMs" : 7.32805, "averageMs" : 0.00348789, "medianMs" : 0.003488, "percentage" : 0.2327 }
+, { "name" : "/model/decoder/decoder/layers_1/self_attn/MatMul_1+/model/decoder/decoder/layers_1/self_attn/MatMul_myl85_66", "timeMs" : 13.7824, "averageMs" : 0.00655991, "medianMs" : 0.00656, "percentage" : 0.437654 }
+, { "name" : "/model/decoder/decoder/layers_1/self_attn/MatMul_3_myl85_67", "timeMs" : 12.9083, "averageMs" : 0.00614386, "medianMs" : 0.006144, "percentage" : 0.409897 }
+, { "name" : "__myl_MaxrSubExpSumDivMul_myl85_68", "timeMs" : 11.361, "averageMs" : 0.00540741, "medianMs" : 0.005408, "percentage" : 0.360763 }
+, { "name" : "__mye153366_myl85_69", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_1/self_attn/MatMul_4_myl85_70", "timeMs" : 12.9074, "averageMs" : 0.00614345, "medianMs" : 0.006144, "percentage" : 0.40987 }
+, { "name" : "__myl_Tran_myl85_71", "timeMs" : 8.6037, "averageMs" : 0.00409505, "medianMs" : 0.004096, "percentage" : 0.273208 }
+, { "name" : "/model/decoder/decoder/layers_1/self_attn/Gemm_myl85_72", "timeMs" : 12.9083, "averageMs" : 0.00614386, "medianMs" : 0.006144, "percentage" : 0.409897 }
+, { "name" : "__myl_ReshAddReshMeanSubMulMeanAddSqrtDivMulMulAddReshAddMulMinMaxRounCast_myl85_73", "timeMs" : 10.7551, "averageMs" : 0.00511903, "medianMs" : 0.00512, "percentage" : 0.341524 }
+, { "name" : "__myl_FcMulAdd_myl85_74", "timeMs" : 10.7563, "averageMs" : 0.00511963, "medianMs" : 0.00512, "percentage" : 0.341564 }
+, { "name" : "__mye153368_myl85_75", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_ReshSlicSlicReshMulMulMulAddMulAddTranReshSlicSlicSlic_myl85_76", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "__myl_TranReshMoveSlicReshSlicReshSlicReshGridGridGrid_myl85_77", "timeMs" : 19.6977, "averageMs" : 0.00937538, "medianMs" : 0.009376, "percentage" : 0.625493 }
+, { "name" : "__mye153370_myl85_78", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_ReshMaxrSubExpSum_myl85_79", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__mye153372_myl85_80", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153374_myl85_81", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_DivMulTranReshConcMulSumMulMinMaxRounCast_myl85_82", "timeMs" : 34.423, "averageMs" : 0.0163841, "medianMs" : 0.016384, "percentage" : 1.09309 }
+, { "name" : "__myl_Move_myl85_83", "timeMs" : 8.60575, "averageMs" : 0.00409603, "medianMs" : 0.004096, "percentage" : 0.273273 }
+, { "name" : "__myl_FcAdd_myl85_84", "timeMs" : 8.67293, "averageMs" : 0.004128, "medianMs" : 0.004128, "percentage" : 0.275406 }
+, { "name" : "__myl_ReshMeanSubMulMeanAddSqrtDivMulMulAddReshMulMinMaxRounCast_myl85_85", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "/model/decoder/decoder/layers_1/linear1/MatMul_myl85_86", "timeMs" : 10.8243, "averageMs" : 0.005152, "medianMs" : 0.005152, "percentage" : 0.343723 }
+, { "name" : "__myl_FcAdd_myl85_87", "timeMs" : 10.7572, "averageMs" : 0.00512005, "medianMs" : 0.00512, "percentage" : 0.341592 }
+, { "name" : "__myl_ReshMeanSubMulMeanAddSqrtDivMulMulAddMulMinMaxRounCast_myl85_88", "timeMs" : 8.60575, "averageMs" : 0.00409603, "medianMs" : 0.004096, "percentage" : 0.273273 }
+, { "name" : "__mye153376_myl85_89", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153378_myl85_90", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_2/self_attn/MatMul_2_myl85_91", "timeMs" : 12.9072, "averageMs" : 0.00614337, "medianMs" : 0.006144, "percentage" : 0.409865 }
+, { "name" : "__mye153380_myl85_92", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_MaxMinSubMaxMinMaxMinDivLog_myl85_93", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "/model/decoder/decoder/dec_bbox_head_1/layers_0/MatMul_myl85_94", "timeMs" : 10.7571, "averageMs" : 0.00512001, "medianMs" : 0.00512, "percentage" : 0.341589 }
+, { "name" : "/model/decoder/decoder/dec_bbox_head_1/layers_1/MatMul_myl85_95", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__myl_FcAddSigm_myl85_96", "timeMs" : 12.9064, "averageMs" : 0.00614298, "medianMs" : 0.006144, "percentage" : 0.409838 }
+, { "name" : "__myl_MulMinMaxRounConcCast_myl85_97", "timeMs" : 6.45413, "averageMs" : 0.00307193, "medianMs" : 0.003072, "percentage" : 0.204949 }
+, { "name" : "/model/decoder/decoder/query_pos_head/layers_0_2/MatMul_myl85_98", "timeMs" : 8.60677, "averageMs" : 0.00409651, "medianMs" : 0.004096, "percentage" : 0.273305 }
+, { "name" : "/model/decoder/decoder/query_pos_head/layers_1_2/MatMul_myl85_99", "timeMs" : 10.7571, "averageMs" : 0.00512001, "medianMs" : 0.00512, "percentage" : 0.341589 }
+, { "name" : "__myl_Add_myl85_100", "timeMs" : 6.655, "averageMs" : 0.00316754, "medianMs" : 0.003168, "percentage" : 0.211327 }
+, { "name" : "/model/decoder/decoder/layers_2/self_attn/MatMul_1+/model/decoder/decoder/layers_2/self_attn/MatMul_myl85_101", "timeMs" : 15.8666, "averageMs" : 0.00755192, "medianMs" : 0.007552, "percentage" : 0.503838 }
+, { "name" : "/model/decoder/decoder/layers_2/self_attn/MatMul_3_myl85_102", "timeMs" : 17.2105, "averageMs" : 0.00819156, "medianMs" : 0.008192, "percentage" : 0.546513 }
+, { "name" : "__myl_MaxrSubExpSumDivMul_myl85_103", "timeMs" : 11.025, "averageMs" : 0.0052475, "medianMs" : 0.005248, "percentage" : 0.350095 }
+, { "name" : "__mye153382_myl85_104", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/layers_2/self_attn/MatMul_4_myl85_105", "timeMs" : 15.0597, "averageMs" : 0.00716788, "medianMs" : 0.007168, "percentage" : 0.478216 }
+, { "name" : "__myl_Tran_myl85_106", "timeMs" : 8.60409, "averageMs" : 0.00409523, "medianMs" : 0.004096, "percentage" : 0.27322 }
+, { "name" : "/model/decoder/decoder/layers_2/self_attn/Gemm_myl85_107", "timeMs" : 11.362, "averageMs" : 0.00540789, "medianMs" : 0.005408, "percentage" : 0.360796 }
+, { "name" : "__myl_ReshAddReshMeanSubMulMeanAddSqrtDivMulMulAddReshAddMulMinMaxRounCast_myl85_108", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "__myl_FcMulAdd_myl85_109", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__mye153384_myl85_110", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_ReshSlicSlicReshMulMulMulAddMulAddTranReshSlicSlicSlic_myl85_111", "timeMs" : 6.45413, "averageMs" : 0.00307193, "medianMs" : 0.003072, "percentage" : 0.204949 }
+, { "name" : "__myl_TranReshMoveSlicReshSlicReshSlicReshGridGridGrid_myl85_112", "timeMs" : 19.9669, "averageMs" : 0.00950354, "medianMs" : 0.009504, "percentage" : 0.634043 }
+, { "name" : "__mye153386_myl85_113", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_ReshMaxrSubExpSum_myl85_114", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__mye153388_myl85_115", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153390_myl85_116", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_DivMulTranReshConcMulSumMulMinMaxRounCast_myl85_117", "timeMs" : 36.5733, "averageMs" : 0.0174075, "medianMs" : 0.017408, "percentage" : 1.16137 }
+, { "name" : "__myl_Move_myl85_118", "timeMs" : 8.60473, "averageMs" : 0.00409554, "medianMs" : 0.004096, "percentage" : 0.27324 }
+, { "name" : "__myl_FcAdd_myl85_119", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__myl_ReshMeanSubMulMeanAddSqrtDivMulMulAddReshMulMinMaxRounCast_myl85_120", "timeMs" : 8.67223, "averageMs" : 0.00412767, "medianMs" : 0.004128, "percentage" : 0.275384 }
+, { "name" : "/model/decoder/decoder/layers_2/linear1/MatMul_myl85_121", "timeMs" : 12.9072, "averageMs" : 0.00614337, "medianMs" : 0.006144, "percentage" : 0.409865 }
+, { "name" : "__myl_FcAdd_myl85_122", "timeMs" : 12.9072, "averageMs" : 0.00614337, "medianMs" : 0.006144, "percentage" : 0.409865 }
+, { "name" : "__myl_ReshMeanSubMulMeanAddSqrtDivMulMulAddMulMinMaxRounCast_myl85_123", "timeMs" : 8.60508, "averageMs" : 0.00409571, "medianMs" : 0.004096, "percentage" : 0.273251 }
+, { "name" : "__mye153392_myl85_124", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__mye153394_myl85_125", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "/model/decoder/decoder/dec_score_head_2/MatMul_myl85_126", "timeMs" : 8.60575, "averageMs" : 0.00409603, "medianMs" : 0.004096, "percentage" : 0.273273 }
+, { "name" : "__myl_GathSigmResh_myl85_127", "timeMs" : 8.60575, "averageMs" : 0.00409603, "medianMs" : 0.004096, "percentage" : 0.273273 }
+, { "name" : "__myl_Topk_myl85_128", "timeMs" : 165.659, "averageMs" : 0.0788477, "medianMs" : 0.078848, "percentage" : 5.26044 }
+, { "name" : "__mye153396_myl85_129", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_MaxMinSubMaxMinMaxMinDivLog_myl85_130", "timeMs" : 8.6037, "averageMs" : 0.00409505, "medianMs" : 0.004096, "percentage" : 0.273208 }
+, { "name" : "/model/decoder/decoder/dec_bbox_head_2/layers_0/MatMul_myl85_131", "timeMs" : 8.60677, "averageMs" : 0.00409651, "medianMs" : 0.004096, "percentage" : 0.273305 }
+, { "name" : "/model/decoder/decoder/dec_bbox_head_2/layers_1/MatMul_myl85_132", "timeMs" : 10.7561, "averageMs" : 0.00511952, "medianMs" : 0.00512, "percentage" : 0.341557 }
+, { "name" : "__myl_FcAddSigm_myl85_133", "timeMs" : 8.60575, "averageMs" : 0.00409603, "medianMs" : 0.004096, "percentage" : 0.273273 }
+, { "name" : "__mye153398_myl85_134", "timeMs" : 0, "averageMs" : 0, "medianMs" : 0, "percentage" : 0 }
+, { "name" : "__myl_ReplReshCastCastDivReshCastReplMulSubReshGathSlicReshSlicReshSlicReshSlicReshMulAddReshSubEtc_myl85_135", "timeMs" : 6.58978, "averageMs" : 0.0031365, "medianMs" : 0.003136, "percentage" : 0.209256 }
+]
