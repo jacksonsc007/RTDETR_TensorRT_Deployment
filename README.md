@@ -52,7 +52,7 @@ Prepare data and model weights (optinal):
 ```fish
  wget https://github.com/lyuwenyu/storage/releases/download/v0.2/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth -O benchmark_models/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth
  
- mkdir dataset
+cd rtdetrv2_pytorch && mkdir dataset && cd dataset
  ln -s <coco_path> coco
 ```
 
@@ -97,24 +97,27 @@ If TensorRT-v10.7 is intended to be used, feel free to use the existing `TensorR
 ```
 
 ### Python Environment
+'uv' provided a rather straightforward way to install the python environment:
 ```fish
 uv sync
 ```
 
 ## Usages
 ### Quick workflow
-Apply the workflow of quantization, conversion and evaluation performance on COCO val 2017 dataset.
+Apply the workflow of quantization, conversion and performance evaluation on COCO val 2017 dataset.
 ```fish
 set output_model_name default_mtq_int8_q_qint8
 bash workflow.sh $output_model_name
 ```
 specifically:
-#### Apply Int8 Quantization Using `Modelopt` Library
+#### Apply Default Int8 Quantization Using `Modelopt` Library
+
 ```fish
 python tools/quantization/export_onnx_mtq_fromPyTorch.py -c configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r benchmark_models/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth --cali_set ~/workspace/coco_calib --output_file $model.onnx --simplify --check
 ```
+> More quantization configs could be found in  'tools/quantization/export_onnx_mtq_fromPyTorch.py'
 
-#### Convert Onnx To Tensorrt Engine Using Python API.
+#### Convert Onnx To TensorRT Engine Using Python API.
 ```fish
 python tools/export_trt.py --onnx $model.onnx --saveEngine $model.engine
 ```
@@ -126,7 +129,7 @@ python tools/train.py -c  configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml -r bench
 
 
 ### Manually Fuse Nodes in the ONNX Model
-For RT-DETR, TensorRT adopts an inappropriate fusion tactic which leads to severe precision degradation during converting quantized ONNX model to TensorRT engine.
+For RT-DETR, TensorRT adopts an inappropriate fusion tactic which leads to severe precision degradation during converting quantized ONNX model to TensorRT engine. (As shown in the benchmark section above)
 
 To prevent TensorRT from performing this, we manually fuse ONNX nodes that are erroneously fused, before converting into TensorRT engine.
 ```fish
@@ -174,7 +177,7 @@ A easy-to-use python script is provided to convert the ONNX model with custom no
 python tools/export_trt.py --onnx fused_attn_sp-default_mtq_int8_q_qint8.onnx  --saveEngine  fused_attn_sp-default_mtq_int8_q_qint8.engine --plugin_libs ink_plugins/tensorrt_10_7/libfused_attn_offset_prediction_plugin_v3.so
 ```
 
-#### Python Plugin Implementation
+#### Python Plugin Implementation (Easy to use, but not recommended)
 Python Plugin Implementation can only be used in Python.
 Three implementations were developed based on Python API:
 - rtdetrv2_pytorch/ink_plugins/ink_plugins_decorator.py
