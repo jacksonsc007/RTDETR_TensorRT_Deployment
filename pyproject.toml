@@ -5,6 +5,7 @@ requires-python = "==3.10.15"
 dependencies = [
     "cupy-cuda12x>=13.4.1",
     "faster-coco-eval>=1.6.5",
+    "ipykernel>=6.29.5",
     "nvidia-modelopt",
     "onnx==1.15.0",
     "onnx-graphsurgeon==0.5.2",

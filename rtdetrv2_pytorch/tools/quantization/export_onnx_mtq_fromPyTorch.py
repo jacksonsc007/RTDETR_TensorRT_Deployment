@@ -161,6 +161,7 @@ def main(args, ):
     # quant_cfg = mtq.FP8_DYNAMIC_CFG
     if args.q_type == 'int8':
         print("\033[92m[INFO] Apply int8 quantization \033[0m")
+        # NOTE: default int8 quantization config
         quant_cfg = mtq.INT8_DEFAULT_CFG.copy()
                            
         """
@@ -200,24 +201,24 @@ def main(args, ):
         """
         specific config based on module type.
         """
-        quant_cfg['quant_cfg']['nn.Linear'] = {
-            '*input_quantizer': {
-                'num_bits': 8,
-                'axis': (1,), # dealing with input size of (B, L, C)
-                'calibrator': 'max',
-                # 'calibrator': 'histogram', # only support per tensor quantization
-                'fake_quant': True,
-            }
-        }
+        # quant_cfg['quant_cfg']['nn.Linear'] = {
+        #     '*input_quantizer': {
+        #         'num_bits': 8,
+        #         'axis': (1,), # dealing with input size of (B, L, C)
+        #         'calibrator': 'max',
+        #         # 'calibrator': 'histogram', # only support per tensor quantization
+        #         'fake_quant': True,
+        #     }
+        # }
 
-        quant_cfg['quant_cfg']['nn.Conv2d'] = {
-            '*input_quantizer': {
-                'num_bits': 8,
-                'axis': None, # per tensor quantization
-                'calibrator': 'histogram',
-                'fake_quant': True,
-            }
-        }
+        # quant_cfg['quant_cfg']['nn.Conv2d'] = {
+        #     '*input_quantizer': {
+        #         'num_bits': 8,
+        #         'axis': None, # per tensor quantization
+        #         'calibrator': 'histogram',
+        #         'fake_quant': True,
+        #     }
+        # }
 
         """specific config for decoder.
         Note that the order of the following config matters. 

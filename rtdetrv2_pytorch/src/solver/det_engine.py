@@ -166,7 +166,7 @@ from .trt_engine import TRTInference
 import sys
 # sys.path.append('.')
 # NOTE: import custom plugins
-import ink_plugins.ink_plugins_IPluginV3
+# import ink_plugins.ink_plugins_IPluginV3
 
 @torch.no_grad()
 def evaluate_trt_engine(model: TRTInference, criterion: torch.nn.Module, postprocessor, data_loader, coco_evaluator: CocoEvaluator, device):

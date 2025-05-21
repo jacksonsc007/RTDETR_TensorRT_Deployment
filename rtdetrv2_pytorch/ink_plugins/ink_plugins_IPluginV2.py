@@ -175,18 +175,18 @@ class fused_attn_offset_prediction(trt.IPluginV2DynamicExt):
         # torch.save(tmp_fp32_attn, "tmp_fp32_attn.pt")
         # torch.save(tmp_fp32_sp, "tmp_fp32_sp.pt")
         # save as binary file to be read by C++
-        input_int8_path = "input_int8.bin"
-        with open(input_int8_path, "wb") as f:
-            f.write(inp_t.cpu().numpy().tobytes())
-            print(f"\033[96m[INFO] input_int8_path saved as {input_int8_path}\033[0m")
-        output_attn_path = "output_attn.bin"
-        with open(output_attn_path, "wb") as f:
-            f.write(tmp_fp32_attn.cpu().numpy().tobytes())
-            print(f"\033[96m[INFO] output_attn_path saved as {output_attn_path}\033[0m")
-        output_sp_path = "output_sp.bin"
-        with open(output_sp_path, "wb") as f:
-            f.write(tmp_fp32_sp.cpu().numpy().tobytes())
-            print(f"\033[96m[INFO] output_sp_path saved as {output_sp_path}\033[0m")
+        # input_int8_path = "input_int8.bin"
+        # with open(input_int8_path, "wb") as f:
+        #     f.write(inp_t.cpu().numpy().tobytes())
+        #     print(f"\033[96m[INFO] input_int8_path saved as {input_int8_path}\033[0m")
+        # output_attn_path = "output_attn.bin"
+        # with open(output_attn_path, "wb") as f:
+        #     f.write(tmp_fp32_attn.cpu().numpy().tobytes())
+        #     print(f"\033[96m[INFO] output_attn_path saved as {output_attn_path}\033[0m")
+        # output_sp_path = "output_sp.bin"
+        # with open(output_sp_path, "wb") as f:
+        #     f.write(tmp_fp32_sp.cpu().numpy().tobytes())
+        #     print(f"\033[96m[INFO] output_sp_path saved as {output_sp_path}\033[0m")
                     
         
         cupy.copyto(

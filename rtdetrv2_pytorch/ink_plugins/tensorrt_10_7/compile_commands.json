@@ -1,12 +1,12 @@
 [
 {
-  "directory": "/root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/tensorrt_10_7",
-  "command": "/usr/local/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dfused_attn_offset_prediction_plugin_v2_EXPORTS -I/usr/local/cuda/include -I/root/workspace/TensorRT-v10.7.0.23-GA/include  -Xcompiler -Wno-deprecated-declarations -Xcompiler=-fPIC -gencode=arch=compute_75,code=sm_75 -gencode=arch=compute_80,code=sm_80 -gencode=arch=compute_86,code=sm_86 -gencode=arch=compute_87,code=sm_87 -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_90,code=sm_90 -gencode=arch=compute_87,code=compute_87 -std=c++14 -x cu -c /root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v2.cu -o CMakeFiles/fused_attn_offset_prediction_plugin_v2.dir/ink_plugins_v2.cu.o",
-  "file": "/root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v2.cu"
+  "directory": "/root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/tensorrt_10_7",
+  "command": "/usr/local/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dfused_attn_offset_prediction_plugin_v2_EXPORTS -I/usr/local/cuda/include -I/root/workspace/TensorRT-v10.7.0.23-GA/include  -Xcompiler -Wno-deprecated-declarations -Xcompiler=-fPIC -gencode=arch=compute_75,code=sm_75 -gencode=arch=compute_80,code=sm_80 -gencode=arch=compute_86,code=sm_86 -gencode=arch=compute_87,code=sm_87 -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_90,code=sm_90 -gencode=arch=compute_87,code=compute_87 -std=c++14 -x cu -c /root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v2.cu -o CMakeFiles/fused_attn_offset_prediction_plugin_v2.dir/ink_plugins_v2.cu.o",
+  "file": "/root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v2.cu"
 },
 {
-  "directory": "/root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/tensorrt_10_7",
-  "command": "/usr/local/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dfused_attn_offset_prediction_plugin_v3_EXPORTS -I/usr/local/cuda/include -I/root/workspace/TensorRT-v10.7.0.23-GA/include  -Xcompiler -Wno-deprecated-declarations -Xcompiler=-fPIC -gencode=arch=compute_75,code=sm_75 -gencode=arch=compute_80,code=sm_80 -gencode=arch=compute_86,code=sm_86 -gencode=arch=compute_87,code=sm_87 -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_90,code=sm_90 -gencode=arch=compute_87,code=compute_87 -std=c++14 -x cu -c /root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v3.cu -o CMakeFiles/fused_attn_offset_prediction_plugin_v3.dir/ink_plugins_v3.cu.o",
-  "file": "/root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v3.cu"
+  "directory": "/root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/tensorrt_10_7",
+  "command": "/usr/local/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dfused_attn_offset_prediction_plugin_v3_EXPORTS -I/usr/local/cuda/include -I/root/workspace/TensorRT-v10.7.0.23-GA/include  -Xcompiler -Wno-deprecated-declarations -Xcompiler=-fPIC -gencode=arch=compute_75,code=sm_75 -gencode=arch=compute_80,code=sm_80 -gencode=arch=compute_86,code=sm_86 -gencode=arch=compute_87,code=sm_87 -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_90,code=sm_90 -gencode=arch=compute_87,code=compute_87 -std=c++14 -x cu -c /root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v3.cu -o CMakeFiles/fused_attn_offset_prediction_plugin_v3.dir/ink_plugins_v3.cu.o",
+  "file": "/root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/ink_plugins_v3.cu"
 }
 ]

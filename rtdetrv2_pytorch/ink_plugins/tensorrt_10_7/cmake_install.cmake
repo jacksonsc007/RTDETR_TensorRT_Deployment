@@ -1,4 +1,4 @@
-# Install script for directory: /root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins
+# Install script for directory: /root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/workspace/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/tensorrt_10_7/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/workspace/development/RTDETR_TensorRT_Deployment/rtdetrv2_pytorch/ink_plugins/tensorrt_10_7/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

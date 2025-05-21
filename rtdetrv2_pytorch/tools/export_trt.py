@@ -2,13 +2,6 @@ import os
 import argparse
 import tensorrt as trt
 
-# import custom plugins
-import sys
-sys.path.append(".")
-# Load if we intend to use python plugins
-# import ink_plugins.ink_plugins_decorator 
-# import ink_plugins.ink_pluginsIPluginV2 
-import ink_plugins.ink_plugins_IPluginV3 
 
 
 # debug = True
@@ -46,7 +39,7 @@ def main(onnx_path, engine_path, max_batchsize, opt_batchsize, min_batchsize, pl
     parser = trt.OnnxParser(network, logger)
     config = builder.create_builder_config()
     
-    # NOTE: load custom plugin lib
+    # NOTE: load custom c++ plugin lib
     print(f"\033[96m[INFO] Loading custom plugin libraries: {plugin_libs}\033[0m ")
     config.plugins_to_serialize = plugin_libs
     for lib in plugin_libs:
@@ -57,6 +50,14 @@ def main(onnx_path, engine_path, max_batchsize, opt_batchsize, min_batchsize, pl
         # )
     assert len(config.plugins_to_serialize) == len(plugin_libs), \
     f"Failed to serialize plugin libraries. config.plugins_to_serialize: {config.plugins_to_serialize}, plugin_libs: {plugin_libs}"
+    if len(plugin_libs) == 0:
+        # import custom python plugins, if c++ plugin libs are not provided
+        import sys
+        sys.path.append(".")
+        # Load if we intend to use python plugins
+        # import ink_plugins.ink_plugins_decorator 
+        # import ink_plugins.ink_pluginsIPluginV2 
+        import ink_plugins.ink_plugins_IPluginV3 
 
     # enable verbose profiling
     config.profiling_verbosity = trt.ProfilingVerbosity.DETAILED
