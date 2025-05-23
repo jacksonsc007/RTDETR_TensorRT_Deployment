@@ -64,6 +64,8 @@ private:
     int64_t *           labels_h;
 
     int                 OUTPUT_CANDIDATES;  // 8400: 80 * 80 + 40 * 40 + 20 * 20
+    std::vector<std::string> IOnames;
+    int numIO;
     // std::string pluginLibs = "shared_plugin_libs/tensorrt_10_9/libfused_attn_offset_prediction_plugin_v3.so";
     std::string pluginLibs = "shared_plugin_libs/tensorrt_10_7/libfused_attn_offset_prediction_plugin_v3.so";
     // std::string pluginLibs = "shared_plugin_libs/tensorrt_10_7/libfused_attn_offset_prediction_plugin_v2.so";

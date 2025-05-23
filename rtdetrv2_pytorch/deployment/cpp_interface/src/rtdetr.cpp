@@ -41,6 +41,8 @@ Consequently, the following loading snippet is no longer needed:
 */
 // #define DEFINE_TRT_ENTRYPOINTS 1
 
+#include <cstddef>
+#include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
@@ -68,6 +70,10 @@ Consequently, the following loading snippet is no longer needed:
 using namespace nvinfer1;
 
 
+static int64_t volume(Dims const& dims)
+{
+    return std::accumulate(dims.d, dims.d + dims.nbDims, int64_t{1}, std::multiplies<int64_t>{});
+}
 
 RTDetr::RTDetr(
         const std::string trtFile,
@@ -132,10 +138,17 @@ RTDetr::RTDetr(
     // }
 
     printf("\n\e[31m[INFO]\e[m Input and Output information:\n");
-    auto num = engine->getNbIOTensors();
-    for (int32_t i = 0; i < num; i++){
-        std::cout << std::left << std::setw(20) << engine->getIOTensorName(i);
-        auto shape = engine->getTensorShape(engine->getIOTensorName(i));
+    numIO = engine->getNbIOTensors();
+    std::vector<int64_t> volumnIO(numIO, 0);
+    std::vector<int32_t> datasizeIO(numIO, 0);
+    IOnames.resize(numIO);
+    for (int32_t i = 0; i < numIO; i++){
+        std::string name = engine->getIOTensorName(i);
+        IOnames[i] = name;
+        
+        std::cout << std::left << std::setw(20) << name;
+        auto shape = engine->getTensorShape(name.c_str());
+        volumnIO[i] = volume(shape);
         std::cout << "Tensor shape: [";
         
         // Create a string to hold the shape dimensions
@@ -149,29 +162,39 @@ RTDetr::RTDetr(
         std::cout << std::left << std::setw(20) << (shapeStr + "]");
         
         // Print the format with alignment
-        std::cout << "Format: " << engine->getTensorFormatDesc(engine->getIOTensorName(i)) << std::endl;
+        std::cout << "Format: " << engine->getTensorFormatDesc(name.c_str()) << std::endl;
+        auto datatype = engine->getTensorDataType(name.c_str());
+        if (datatype == nvinfer1::DataType::kINT8) datasizeIO[i] = 8;
+        else if (datatype == nvinfer1::DataType::kFLOAT) datasizeIO[i] = 32;
+        else if (datatype == nvinfer1::DataType::kINT64) datasizeIO[i] = 64;
+        else
+        {
+            printf("Unsupported datatype: %d, please modify codes\n", datatype);
+            std::abort();
+        }
+
     }
     printf("\n");
 
     // NOTE: Define our expected input/output specification. Significant!!!
-    std::vector<TypeSpec> ExpectedFormat = {
-        // images
-        TypeSpec{DataType::kFLOAT, TensorFormat::kLINEAR, "KLINEAR"},
-        // orig_target_sizes
-        TypeSpec{DataType::kINT64, TensorFormat::kLINEAR, "KLINEAR"},
-        // labels
-        TypeSpec{DataType::kINT64, TensorFormat::kLINEAR, "KLINEAR"},
-        // scores
-        TypeSpec{DataType::kFLOAT, TensorFormat::kLINEAR, "KLINEAR"},
-        // boxes
-        TypeSpec{DataType::kFLOAT, TensorFormat::kLINEAR, "KLINEAR"},
-    };
+    // std::vector<TypeSpec> ExpectedFormat = {
+    //     // images
+    //     TypeSpec{DataType::kFLOAT, TensorFormat::kLINEAR, "KLINEAR"},
+    //     // orig_target_sizes
+    //     TypeSpec{DataType::kINT64, TensorFormat::kLINEAR, "KLINEAR"},
+    //     // labels
+    //     TypeSpec{DataType::kINT64, TensorFormat::kLINEAR, "KLINEAR"},
+    //     // scores
+    //     TypeSpec{DataType::kFLOAT, TensorFormat::kLINEAR, "KLINEAR"},
+    //     // boxes
+    //     TypeSpec{DataType::kFLOAT, TensorFormat::kLINEAR, "KLINEAR"},
+    // };
 
-    if (!verify(ExpectedFormat))
-    {
-        printf("\e[31m[ERROR]\e[m Data type mismatch\n");
-        exit(1); // Terminate the program with an error code
-    }
+    // if (!verify(ExpectedFormat))
+    // {
+    //     printf("\e[31m[ERROR]\e[m Data type mismatch\n");
+    //     exit(1); // Terminate the program with an error code
+    // }
 
     // There are 2 inputs and 3 outputs for rt-detr, which could be observed from onnx visualization
     // context->setBindingDimensions(0, Dims64 {4, {1, 3, kInputH, kInputW}});
@@ -202,12 +225,23 @@ RTDetr::RTDetr(
     scores_h = new float[OUTPUT_CANDIDATES];
 
     // prepare input and output space on device
-    vBufferD.resize(5, nullptr);
-    CHECK(cudaMalloc(&vBufferD[0], 3 * kInputH * kInputW * sizeof(float))); // images (1, 3, 640, 640)
-    CHECK(cudaMalloc(&vBufferD[1], 1 * 2 * sizeof(int64_t))); // orig_target_sizes (1,2)
-    CHECK(cudaMalloc(&vBufferD[2], OUTPUT_CANDIDATES * sizeof(float))); // scores (1, 300)
-    CHECK(cudaMalloc(&vBufferD[3], OUTPUT_CANDIDATES * sizeof(int64_t))); // labels (1, 300)
-    CHECK(cudaMalloc(&vBufferD[4], 4 * OUTPUT_CANDIDATES * sizeof(float))); // boxes (1, 300, 4)
+    vBufferD.resize(numIO, nullptr);
+    for (int i = 0; i < numIO; ++i)
+    {
+        int64_t volume = volumnIO[i];
+        int32_t datasize = datasizeIO[i];
+        CHECK(
+            cudaMalloc(
+                &vBufferD[i],
+                volume * datasize
+            )
+        );
+    }
+    // CHECK(cudaMalloc(&vBufferD[0], 3 * kInputH * kInputW * sizeof(float))); // images (1, 3, 640, 640)
+    // CHECK(cudaMalloc(&vBufferD[1], 1 * 2 * sizeof(int64_t))); // orig_target_sizes (1,2)
+    // CHECK(cudaMalloc(&vBufferD[2], OUTPUT_CANDIDATES * sizeof(float))); // scores (1, 300)
+    // CHECK(cudaMalloc(&vBufferD[3], OUTPUT_CANDIDATES * sizeof(int64_t))); // labels (1, 300)
+    // CHECK(cudaMalloc(&vBufferD[4], 4 * OUTPUT_CANDIDATES * sizeof(float))); // boxes (1, 300, 4)
 
 }
 
@@ -388,7 +422,7 @@ int32_t RTDetr::get_engine(){
 RTDetr::~RTDetr(){
     cudaStreamDestroy(stream);
 
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < vBufferD.size(); ++i)
     {
         CHECK(cudaFree(vBufferD[i]));
     }
@@ -424,58 +458,41 @@ std::vector<Detection> RTDetr::inference(cv::Mat& img){
     preprocess(img, (float*)vBufferD[0], kInputH, kInputW, stream);
     cudaStreamSynchronize(stream);
     STATS_END("detector inference:: image preprocess");
+    // 
+
+
+    cudaStreamSynchronize(stream);
+    STATS_START("detector inference:: model inference");
+    
     // int64_t orig_target_sizes_h[2] = {srcWidth, srcHeight};
-    STATS_START("detector inference:: copy from host to device");
+    // STATS_START("detector inference:: copy from host to device");
     int64_t orig_target_sizes_h[2] = {kInputW, kInputH};
-    CHECK(cudaMemcpyAsync(vBufferD[1], orig_target_sizes_h, 2 * sizeof(int64_t), cudaMemcpyHostToDevice, stream));
-    STATS_END("detector inference:: copy from host to device");
+    // CHECK(cudaMemcpyAsync(vBufferD[1], orig_target_sizes_h, 2 * sizeof(int64_t), cudaMemcpyHostToDevice, stream));
+    // STATS_END("detector inference:: copy from host to device");
 
     bool status;
-    status = context->setTensorAddress("images", vBufferD[0]);
-    assert (status == true);
-    status = context->setTensorAddress("orig_target_sizes", vBufferD[1]);
-    assert (status == true);
-    status = context->setTensorAddress("scores", vBufferD[2]);
-    assert (status == true);
-    status = context->setTensorAddress("labels", vBufferD[3]);
-    assert (status == true);
-    status = context->setTensorAddress("boxes", vBufferD[4]);
-    assert (status == true);
+    for (int i = 0; i < numIO; i++)
+    {
+        status = context->setTensorAddress(IOnames[i].c_str(), vBufferD[i]);
+    }
     // tensorrt inference
-    cudaStreamSynchronize(stream);
-    STATS_START("detector inference:: engine enqueue");
-    context->enqueueV3(stream);
-    cudaStreamSynchronize(stream);
-    STATS_END("detector inference:: engine enqueue");
-
-    // context->enqueueV2(vBufferD.data(), stream, nullptr);
-
-    // transpose [1 84 8400] convert to [1 8400 84]
-    // transpose((float*)vBufferD[1], transposeDevice, OUTPUT_CANDIDATES, numClass_ + 4, stream);
-
-    // convert [1 8400 84] to [1 7001]
-    // decode(transposeDevice, decodeDevice, OUTPUT_CANDIDATES, numClass_, confThresh_, kMaxNumOutputBbox, kNumBoxElement, stream);
-    // cuda nms
-    // nms(decodeDevice, nmsThresh_, kMaxNumOutputBbox, kNumBoxElement, stream);
-
-
     // cudaStreamSynchronize(stream);
-    // STATS_END("engine enqueue");
+    // STATS_START("detector inference:: engine enqueue");
+    context->enqueueV3(stream);
+    // cudaStreamSynchronize(stream);
+    // STATS_END("detector inference:: engine enqueue");
 
-    // CHECK(cudaMemcpyAsync(outputData, decodeDevice, (1 + kMaxNumOutputBbox * kNumBoxElement) * sizeof(float), cudaMemcpyDeviceToHost, stream));
-    STATS_START("detector inference:: results copy");
-    CHECK(cudaMemcpyAsync(scores_h, vBufferD[2], OUTPUT_CANDIDATES * sizeof(float), cudaMemcpyDeviceToHost, stream));
-    CHECK(cudaMemcpyAsync(labels_h, vBufferD[3], OUTPUT_CANDIDATES * sizeof(int64_t), cudaMemcpyDeviceToHost, stream));
-    CHECK(cudaMemcpyAsync(boxes_h, vBufferD[4], OUTPUT_CANDIDATES * 4 * sizeof(float), cudaMemcpyDeviceToHost, stream));
-    cudaStreamSynchronize(stream);
-    STATS_END("detector inference:: results copy");
     
+    // STATS_START("detector inference:: results copy");
+    // The last three IOs are scores, boxes, and classes.
+    CHECK(cudaMemcpyAsync(labels_h, vBufferD[numIO-3], OUTPUT_CANDIDATES * sizeof(int64_t), cudaMemcpyDeviceToHost, stream));
+    CHECK(cudaMemcpyAsync(boxes_h, vBufferD[numIO-2], OUTPUT_CANDIDATES * 4 * sizeof(float), cudaMemcpyDeviceToHost, stream));
+    CHECK(cudaMemcpyAsync(scores_h, vBufferD[numIO-1], OUTPUT_CANDIDATES * sizeof(float), cudaMemcpyDeviceToHost, stream));
+    // cudaStreamSynchronize(stream);
+    // STATS_END("detector inference:: results copy");
 
-    // STATS_END("engine enqueue");
 
-
-
-    STATS_START("detector inference:: result postprocess");
+    // STATS_START("detector inference:: result postprocess");
     std::vector<Detection> vDetections;
     // int count = std::min((int)outputData[0], kMaxNumOutputBbox);
     int count = OUTPUT_CANDIDATES;
@@ -510,8 +527,11 @@ std::vector<Detection> RTDetr::inference(cv::Mat& img){
     for (size_t j = 0; j < vDetections.size(); j++){
         scale_bbox(img, vDetections[j].bbox);
     }
-    STATS_END("detector inference:: result postprocess");
+    // STATS_END("detector inference:: result postprocess");
 
+
+    cudaStreamSynchronize(stream);
+    STATS_END("detector inference:: model inference");
     return vDetections;
 }
 

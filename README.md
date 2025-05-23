@@ -10,7 +10,7 @@ It is worth noting that this repository is learning-oriented, and is not intende
 - CPU: Intel Core i5-13600KF
 
 ### Experiment Results
-
+#### Python Deployment
 | Model                                                                                                                       | TensorRT Version | precision | APval   | FPS (model inference + data preprocessing + image read from memory) | FPS (model inference) |
 | --------------------------------------------------------------------------------------------------------------------------- | ---------------- | --------- | ------- | ------------------------------------------------------------------- | --------------------- |
 | Pytorch Model                                                                                                               |                  | fp32      | 48.1    | 90                                                                  | 204                   |
@@ -33,13 +33,30 @@ Notes:
 - input image size is 640 x 640
 - AP is evaluated on MSCOCO val2017 dataset.
 - FPS is evaluated on a single 4090 GPU with 500 images 
+- Plugins are compiled as C++ shared libraries, but FPS is evaluated through Python Interface `rtdetrv2_tensorrt.py`.
 
+#### C++ Deployment
+
+| Model                                                                                                              | TensorRT Version | precision | APval | FPS (model inference + data preprocessing + image read from memory) | FPS (model inference) |
+| ------------------------------------------------------------------------------------------------------------------ | ---------------- | --------- | ----- | ------------------------------------------------------------------- | --------------------- |
+| trt engine; Default mtq int8 quantization; direct conversion; add additional output to break inappropriate fusion. | 10.7             | int8 fp32 | 31.0  | 269                                                                 | 891                   |
+| (same as above)                                                                                                    | 10.7             | int8 fp16 | 31.1  | 275                                                                 | 951                   |
+|                                                                                                                    |                  |           |       |                                                                     |                       |
+|                                                                                                                    |                  |           |       |                                                                     |                       |
+
+Note:
+- Plugins are compiled as C++ shared libraries, and FPS is evaluated through C++ Interface, please refer to `main.cpp`. 
+- Image Processing is implemented with CUDA kernel.
+
+
+#### Conclusions
 Several conclusions can be drawn from the results of these experiments:
 1. TensorRT 10.9 provides more stable and performant optimization than TensorRT 10.7
 2. Applying INT8 quantization accelerates model inference compared to FP32 and FP16 inference without quantization.
 3. Designating new outputs does not compromise model inference efficiency and serves as an effective way to prevent undesirable fusion.
 4. The custome plugin kernel implementation is **functional** and demonstrates that precision degradation stems from inappropriate fusion performed by TensorRT.
-
+5. Image preprocess is vital and could be the bottleneck.
+6. TensorRT C++ Inteface is relatively more performant.
 
 ## Development Environment
 Before building environment, clone this repo and sub-modules:

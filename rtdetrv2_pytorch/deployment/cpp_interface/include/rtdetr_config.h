@@ -21,7 +21,7 @@ const int kNumBoxElement = 7;  // left, top, right, bottom, confidence, class, k
 // const std::string testDataDir = "../images";  // 用于推理
 
 // for FP16 mode
-const bool bFP16Mode = false;
+const bool bFP16Mode = true;
 // for INT8 mode
 const bool bINT8Mode = false;
 const std::string cacheFile = "./int8.cache";

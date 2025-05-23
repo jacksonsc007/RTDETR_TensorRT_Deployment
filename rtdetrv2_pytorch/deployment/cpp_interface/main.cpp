@@ -42,7 +42,7 @@ int run(const char* imageDir, const char* trtFile, const char* onnxFile){
         // std::cout << "Image: " << file_names[i] << " cost: " << cost << " ms."  << std::endl;
 
         // draw result on image
-        bool draw_and_save = true;
+        bool draw_and_save = false;
         if (draw_and_save)
         {
             RTDetr::draw_image(img, res);
@@ -58,9 +58,9 @@ int run(const char* imageDir, const char* trtFile, const char* onnxFile){
     }
     auto end_epoch = std::chrono::system_clock::now();
     double epoch_time = std::chrono::duration<double, std::milli>(end_epoch - start_epoch).count();
-    double fps_1 = file_names.size() / (epoch_time / 1000.0);
+    double fps_epoch = file_names.size() / (epoch_time / 1000.0);
     double fps_model_inference = file_names.size() / (model_inference_time / 1000.0);
-    printf("\e[31m[INFO]\e[m RT-DETR FPS: %.2f %.2f\n", fps_1, fps_model_inference);
+    printf("\e[31m[INFO]\e[m RT-DETR FPS: %.2f %.2f\n", fps_epoch, fps_model_inference);
     printf("\e[31m[INFO]\e[m RT-DETR Deteciton Finished.\n");
     REPORT
     return 0;

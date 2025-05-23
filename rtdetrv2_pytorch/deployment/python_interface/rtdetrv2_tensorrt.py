@@ -134,12 +134,12 @@ if __name__ == '__main__':
         output = m(blob)
         elapsed = time.time() - start
         # print("\033[96m[DEBUG] output:\033[0m")
-        if idx % 100 == 0:
-            import pprint
-            # pprint.pprint(output)
-            print("\033[96m[DEBUG] max score:\033[0m")
-            pprint.pprint(output['scores'].max())
-            draw([im_pil], output['labels'], output['boxes'], output['scores'], idx, 0.4) 
+        # if idx % 100 == 0:
+        #     import pprint
+        #     # pprint.pprint(output)
+        #     print("\033[96m[DEBUG] max score:\033[0m")
+        #     pprint.pprint(output['scores'].max())
+        #     draw([im_pil], output['labels'], output['boxes'], output['scores'], idx, 0.4) 
         # print(f"Processed {img_path} in {elapsed:.4f} seconds")
         total_time_model += elapsed
         total_images += 1
