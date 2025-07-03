@@ -50,6 +50,8 @@ def main(args, ):
     # time including data preprocess
     total_time_2 = 0.0
     start_2 = time.time()
+    if len(image_files) > 500:
+        image_files = image_files[:500]
     for idx, img_path in enumerate(tqdm(image_files, desc="Processing images")):
         im_pil = Image.open(img_path).convert('RGB')
         w, h = im_pil.size
@@ -93,9 +95,9 @@ def main(args, ):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--onnx-file', type=str, )
-    parser.add_argument('--im-file', type=str, )
-    parser.add_argument('--img-dir', type=str, default='')
+    parser.add_argument('--onnx-file', type=str, required=True)
+    parser.add_argument('--im-file', type=str, default='test.jpg')
+    parser.add_argument('--img-dir', type=str, default='test')
     # parser.add_argument('-d', '--device', type=str, default='cpu')
     args = parser.parse_args()
     main(args)

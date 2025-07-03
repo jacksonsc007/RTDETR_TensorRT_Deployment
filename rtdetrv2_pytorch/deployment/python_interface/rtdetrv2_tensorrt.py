@@ -112,6 +112,8 @@ if __name__ == '__main__':
     
     total_time_epoch = 0.0
     start_2 = time.time()
+    if len(image_files) > 500:
+        image_files = image_files[:500]
     for idx, img_path in enumerate(tqdm( image_files, desc="Processing Images")):
         im_pil = Image.open(img_path).convert('RGB')
         w, h = im_pil.size

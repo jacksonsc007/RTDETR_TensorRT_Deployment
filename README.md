@@ -10,6 +10,95 @@ It is worth noting that this repository is learning-oriented, and is not intende
 - CPU: Intel Core i5-13600KF
 
 ### Experiment Results
+
+##### Quantization
+Benchmark results under various quantization configurations.
+| Model         | Quantization config                                                                             | precision | APval |
+| ------------- | ----------------------------------------------------------------------------------------------- | --------- | ----- |
+| Pytorch Model |                                                                                                 | fp32      | 48.1  |
+| Onnx          |                                                                                                 | fp32      | 48.1  |
+| trt engine    |                                                                                                 | fp32      | 48.1  |
+| trt engine    |                                                                                                 | fp16      | 48.0  |
+|               |                                                                                                 |           |       |
+| Onnx          | Default mtq int8 quantization                                                                   | int8      | 31.0  |
+|               | Default mtq int8 quantization + disable encoder quantization                                    |           | 46.9  |
+|               | <br>Default mtq int8 quantization + disable encoder quantization + disable decoder quantizaiton |           | 47.5  |
+|               | q_config_1                                                                                      |           | 47.7  |
+|               | q_config_1 + disable_decoder                                                                    |           | 47.8  |
+|               | q_config_1 + disable_decoder_cross_attn                                                         |           | 47.7  |
+|               | q_config_1 + disable_decoder_cross_attn_sampling_offsets                                        |           | 47.7  |
+|               | q_config_1 + disable_decoder_cross_attn_attn_weights                                            |           | 47.7  |
+|               | q_config_1 + disable_decoder_cross_attn_value_proj                                              |           | 47.6  |
+|               | q_config_1 + disable_decoder_cross_attn_output_proj                                             |           | 47.6  |
+|               | q_config_2                                                                                      |           | 32.2  |
+|               | q_config_3                                                                                      |           | 47.2  |
+|               | q_config_3 + disable_decoder                                                                    |           | 47.8  |
+|               | q_config_3 + disable_decoder_cross_attn                                                         |           | 47.6  |
+|               | q_config_3 + disable_decoder_cross_attn_sampling_offsets                                        |           | 47.3  |
+|               | q_config_3 + disable_decoder_cross_attn_value_proj                                              |           | 47.5  |
+| trt engine    | q_config_1                                                                                      |           | 19.4  |
+|               | q_config_1 + disable_decoder                                                                    |           | 47.8  |
+|               | q_config_1 + disable_decoder_cross_attn                                                         |           | 47.7  |
+|               | q_config_1 + disable_decoder_cross_attn_sampling_offsets                                        |           | 19.3  |
+|               | q_config_1 + disable_decoder_cross_attn_attn_weights                                            |           | 19.3  |
+|               | q_config_1 + disable_decoder_cross_attn_value_proj                                              |           | 47.7  |
+|               | q_config_1 + disable_decoder_cross_attn_output_proj                                             |           | 19.3  |
+|               | q_config_1 + add_additional_output                                                              |           | 47.7  |
+|               | q_config_3                                                                                      |           | 0.60  |
+|               | q_config_3 + disable_decoder                                                                    |           | 47.8  |
+|               | q_config_3 + disable_decoder_cross_attn                                                         |           | 47.6  |
+|               | q_config_3 + disable_decoder_cross_attn_sampling_offsets                                        |           | 47.3  |
+|               | q_config_3 + disable_decoder_cross_attn_value_proj                                              |           | 0.70  |
+|               | q_config_3 + add_additioal_output                                                               |           | 47.3  |
+
+- q_config_1
+```python
+        quant_cfg['quant_cfg']['nn.Linear'] = {
+            '*input_quantizer': {
+                'num_bits': 8,
+                'axis': (1,), # dealing with input size of (B, L, C)
+                'calibrator': 'max',
+                'fake_quant': True,
+            }
+        }
+
+        quant_cfg['quant_cfg']['nn.Conv2d'] = {
+            '*input_quantizer': {
+                'num_bits': 8,
+                'axis': None, # per tensor quantization
+                'calibrator': 'histogram',
+                'fake_quant': True,
+            }
+        }
+
+```
+
+- q_config_2
+
+```python
+        quant_cfg['quant_cfg']['nn.Linear'] = {
+            '*input_quantizer': {
+                'num_bits': 8,
+                'axis': (1,), # dealing with input size of (B, L, C)
+                'calibrator': 'max',
+                'fake_quant': True,
+            }
+        }
+```
+
+- q_config_3
+
+```python
+        quant_cfg['quant_cfg']['nn.Conv2d'] = {
+            '*input_quantizer': {
+                'num_bits': 8,
+                'axis': None, # per tensor quantization
+                'calibrator': 'histogram',
+                'fake_quant': True,
+            }
+        }
+
+```
 #### Python Deployment
 | Model                                                                                                                       | TensorRT Version | precision | APval   | FPS (model inference + data preprocessing + image read from memory) | FPS (model inference) |
 | --------------------------------------------------------------------------------------------------------------------------- | ---------------- | --------- | ------- | ------------------------------------------------------------------- | --------------------- |
@@ -18,6 +107,7 @@ It is worth noting that this repository is learning-oriented, and is not intende
 | trt engine                                                                                                                  | 10.7             | fp32      | 48.1    | 146.92                                                              | 423.86                |
 | trt engine                                                                                                                  | 10.7             | fp16      | 48.0    | 171.67                                                              | 762.17                |
 | Onnx; Default mtq int8 quantization                                                                                         | 10.7             | int8      | 31.0    | 102.18                                                              | 206.02                |
+| Onnx; mtq int8 quantization `q_config_1`                                                                                    | 10.7             | int8      | 47.7    | 97.84                                                              | 199.17                | 
 | trt engine; Default mtq int8 quantization; direct conversion                                                                | 10.7             | int8 fp16 | **1.1** | 160                                                                 | 882.53                |
 | (same as above)                                                                                                             | 10.7             | int8 fp32 | **1.2** | 157                                                                 | 848.98                |
 | <br>(same as above)                                                                                                         | 10.9             | int8 fp16 | 30.8    | 189                                                                 | 1066                  |
@@ -25,8 +115,12 @@ It is worth noting that this repository is learning-oriented, and is not intende
 | trt engine; Default mtq int8 quantization; fused attn sampling offsets; IPluginV2                                           | 10.7             | int8 fp32 | 30.9    | 166.44                                                              | 578.75                |
 | <br>trt engine; Default mtq int8 quantization; fused attn sampling offsets; IPluginV3                                       | 10.7             | int8 fp32 | 31.0    | 132.95                                                              | 586.09                |
 | (same as above)                                                                                                             | 10.7             | int8 fp16 | 31.0    | 140.90                                                              | 642.42                |
-| trt engine; Default mtq int8 quantization; direct conversion; add additional output to break inappropriate fusion.          | 10.7             | int8 fp32 | 31.0    | 181                                                                 | 829                   |
+| trt engine; Default mtq int8 quantization;                    add additional output to break inappropriate fusion.          | 10.7             | int8 fp32 | 31.0    | 181                                                                 | 829                   |
 | (same as above)                                                                                                             | 10.7             | int8 fp16 | 31.0    | 184.3680                                                            | 880                   |
+| trt engine; q_config_1  int8 quantization;                    add additional output to break inappropriate fusion.          | 10.7             | int8 fp32 | 47.7    | 173                                                                 | 606                   |
+| (same as above)                                                                                                             | 10.7             | int8 fp16 | 47.7    | 177.6000                                                            | 673.1719              |
+| trt engine; q_config_3  int8 quantization;                    add additional output to break inappropriate fusion.          | 10.7             | int8 fp32 | 47.3    | 182                                                                 | 725                   |
+| (same as above)                                                                                                             | 10.7             | int8 fp16 | 47.3    | 192                                                                 | 865                   |
 
 Notes:
 - The config of evaluated model is `configs/rtdetrv2/rtdetrv2_r18vd_120e_coco.yml`
@@ -39,10 +133,12 @@ Notes:
 
 | Model                                                                                                              | TensorRT Version | precision | APval | FPS (model inference + data preprocessing + image read from memory) | FPS (model inference) |
 | ------------------------------------------------------------------------------------------------------------------ | ---------------- | --------- | ----- | ------------------------------------------------------------------- | --------------------- |
-| trt engine; Default mtq int8 quantization; direct conversion; add additional output to break inappropriate fusion. | 10.7             | int8 fp32 | 31.0  | 269                                                                 | 891                   |
+| trt engine; Default mtq int8 quantization;                    add additional output to break inappropriate fusion. | 10.7             | int8 fp32 | 31.0  | 269                                                                 | 891                   |
 | (same as above)                                                                                                    | 10.7             | int8 fp16 | 31.1  | 275                                                                 | 951                   |
-|                                                                                                                    |                  |           |       |                                                                     |                       |
-|                                                                                                                    |                  |           |       |                                                                     |                       |
+| trt engine; q_config_1  int8 quantization;                    add additional output to break inappropriate fusion. | 10.7             | int8 fp32 | 47.7  | 252                                                                 | 685                   |
+| (same as above)                                                                                                    | 10.7             | int8 fp16 | 47.7  | 260                                                                 | 745                   |
+| trt engine; q_config_3  int8 quantization;                    add additional output to break inappropriate fusion. | 10.7             | int8 fp32 | 47.3  | 270                                                                 | 865                   |
+| (same as above)                                                                                                    | 10.7             | int8 fp16 | 47.3  | 272                                                                 | 933                   |
 
 Note:
 - Plugins are compiled as C++ shared libraries, and FPS is evaluated through C++ Interface, please refer to `main.cpp`. 
@@ -67,10 +163,12 @@ git submodule update --init --recursive
 ```
 Prepare data and model weights (optinal):
 ```fish
- wget https://github.com/lyuwenyu/storage/releases/download/v0.2/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth -O benchmark_models/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth
+cd rtdetrv2_pytorch
+
+wget https://github.com/lyuwenyu/storage/releases/download/v0.2/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth -O benchmark_models/rtdetrv2_r18vd_120e_coco_rerun_48.1.pth
  
-cd rtdetrv2_pytorch && mkdir dataset && cd dataset
- ln -s <coco_path> coco
+mkdir dataset && cd dataset
+ln -s <coco_path> coco
 ```
 
 ### C++ Environment
@@ -127,6 +225,8 @@ Conda environment is also provided in `environment.yml`.
 ### Quick workflow
 Apply the workflow of quantization, conversion and performance evaluation on COCO val 2017 dataset.
 ```fish
+source .venv/bin/activate.fish
+cd rtdetrv2_pytorch/
 set output_model_name default_mtq_int8_q_qint8
 bash workflow.sh $output_model_name
 ```
@@ -265,15 +365,38 @@ cd TensorRT-v10.7
 cmake -B build -DTRT_LIB_DIR=$TRT_GA_LIBPATH -DTRT_OUT_DIR=$(pwd)/out -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build build -j
 ```
 ### Polygraphy: Compare The Outputs Between TensorRT And ONNX Runtime
-`rtdetrv2_pytorch/tools/compare_engine_onnx_output/polygraphy_compare_onnx_engine.ipynb` demonstrate how to compare the outputs between TensorRT and ONNX Runtime. This is particularly useful to debug the problematic engine.
+[polygraphy_compare_onnx_engine.ipynb](https://github.com/jacksonsc007/RTDETR_TensorRT_Deployment/blob/main/rtdetrv2_pytorch/tools/compare_engine_onnx_output/polygraphy_compare_onnx_engine.ipynb) demonstrate how to compare the outputs between TensorRT and ONNX Runtime. This is particularly useful to debug the problematic engine.
 
 ### Modify Model Output To Break Inapproporiate Fusion Tactic
-`rtdetrv2_pytorch/tools/compare_engine_onnx_output/polygraphy_compare_onnx_engine.ipynb` also shows how to designate additional outputs of nodes as final model outputs.
+[polygraphy_compare_onnx_engine.ipynb](https://github.com/jacksonsc007/RTDETR_TensorRT_Deployment/blob/main/rtdetrv2_pytorch/tools/compare_engine_onnx_output/polygraphy_compare_onnx_engine.ipynb) also shows how to designate additional outputs of nodes as final model outputs.
 
 Adding additional outputs could break the fusion adopted by TensorRT, which comes in handy when a problematic fusion tactic is applied during engine conversion process.
 
+Problmatic nodes may differ for various quantization configs:
+1. For default int8 quantization in `ModelOpt`, the following outputs should be explicitly marked as outputs to break inappropriate fusion:
+```python
+'/model/decoder/decoder/layers.0/cross_attn/attention_weights/Add_output_0',
+'/model/decoder/decoder/layers.1/cross_attn/attention_weights/Add_output_0',
+'/model/decoder/decoder/layers.2/cross_attn/attention_weights/Add_output_0',
+
+'/model/decoder/decoder/layers.0/cross_attn/sampling_offsets/Add_output_0',
+'/model/decoder/decoder/layers.1/cross_attn/sampling_offsets/Add_output_0',
+'/model/decoder/decoder/layers.2/cross_attn/sampling_offsets/Add_output_0',
+```
+
+2. For `q_config_1` quantization setting, `model/decoder/Concat_3_output_0` is the lifesaver. Explicitly marking it as additional output can break the inappropriate fusion and retore the precison of engine.
+
+#### How to pinpoint the locations where inappropriate fusions occur?
+Trial and error proves to be an effective solution. RT-DETR consists of a backbone, an encoder and a decoder. We can disable the quantization for one of them and then evalution the performance. Once the problematic part is identified, we could delve into its finer structures and repeat this process.
+
+For `q_config_1`, disabling the quantization for `value_proj` layers in decoder did not results in performance degradation. The `value_proj` seems to be the culprit, but this is not the complete picture.
+
+I attempted to mark the internal activations in `value_proj` as outputs but the engine still failed to restore precision. After comparing the histogram of some activations, I observed that the issue did not originate in the `value_proj` layer itself, but rather its input —  `/model/decoder/Concat_3_output_0`. (This took me almost an hour to figure out)
+
+
 
 ### Profile and Visualize Engine
+`trt-engine-explorer` provides engine visualization:
 ```fish
 source .venv/bin/activate.fish
 cd rtdetrv2_pytorch/benchmark_models/

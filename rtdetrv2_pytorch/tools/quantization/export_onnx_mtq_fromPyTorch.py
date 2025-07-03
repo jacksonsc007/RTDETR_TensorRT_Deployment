@@ -200,6 +200,7 @@ def main(args, ):
 
         """
         specific config based on module type.
+        q_config_1
         """
         # quant_cfg['quant_cfg']['nn.Linear'] = {
         #     '*input_quantizer': {
@@ -219,6 +220,30 @@ def main(args, ):
         #         'fake_quant': True,
         #     }
         # }
+
+        # quant_cfg['quant_cfg']['*decoder*cross_attn*value_proj*'] = {'enable': False}
+        # quant_cfg['quant_cfg']['*decoder*cross_attn*output_proj*'] = {'enable': False}
+        
+        
+
+        """
+        specific config based on module type.
+        q_config_3
+        """
+        quant_cfg['quant_cfg']['nn.Conv2d'] = {
+            '*input_quantizer': {
+                'num_bits': 8,
+                'axis': None, # per tensor quantization
+                'calibrator': 'histogram',
+                'fake_quant': True,
+            }
+        }
+        # quant_cfg['quant_cfg']['*decoder*'] = {'enable': False}
+        # quant_cfg['quant_cfg']['*decoder*cross_attn*'] = {'enable': False}
+        quant_cfg['quant_cfg']['*decoder*cross_attn*sampling_offsets*'] = {'enable': False}
+        # quant_cfg['quant_cfg']['*decoder*cross_attn*value_proj*'] = {'enable': False}
+        # quant_cfg['quant_cfg']['*decoder*cross_attn*output_proj*'] = {'enable': False}
+        
 
         """specific config for decoder.
         Note that the order of the following config matters. 
